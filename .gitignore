@@ -8,8 +8,8 @@ public/view/edittool.js
 public/index.html
 
 # Ignore SQLite databases
-db/development.sqlite
-db/test.sqlite
+db/development.sqlite3
+db/test.sqlite3
 
 # Ignore log and temp folders
 log/
