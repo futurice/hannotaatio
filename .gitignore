@@ -5,6 +5,7 @@ config/database.yml
 # Ignore compiled code
 public/hannotaatio.js
 public/view/edittool.js
+public/index.html
 
 # Ignore log and temp folders
 log/

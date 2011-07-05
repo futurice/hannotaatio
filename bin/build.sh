@@ -57,16 +57,20 @@ echo "Current version is $VERSION_NUMBER"
 echo '*** Adding version numbers to capture/edittool***'
 
 str='@VERSION_INFO@'
-sed -i "" "s/$str/$VERSION_NUMBER/g" ${TMP}/hannotaatio_capture_tool_compiled.js
-sed -i "" "s/$str/$VERSION_NUMBER/g" ${TMP}/hannotaatio_edit_tool_compiled.js
+sed -i ".bak" "s/$str/$VERSION_NUMBER/g" ${TMP}/hannotaatio_capture_tool_compiled.js
+sed -i ".bak" "s/$str/$VERSION_NUMBER/g" ${TMP}/hannotaatio_edit_tool_compiled.js
 
 cp ${TMP}/hannotaatio_capture_tool_compiled.js ${PUBLIC}/hannotaatio.js
 cp ${TMP}/hannotaatio_edit_tool_compiled.js ${PUBLIC}/view/edittool.js
 
 echo '*** Adding version number to index page ***'
 
-INDEX_FILE="${PUBLIC}/index.html"
+INDEX_FILE="${PUBLIC}/index.html.tmpl"
 str='@VERSION@'
 
 # Notice: Sed implementions differ. The line below works in Linux (CI server) but not in Mac OSX
-sed -i "" "s/$str/$VERSION_NUMBER/g" $INDEX_FILE
+sed -i ".bak" "s/$str/$VERSION_NUMBER/g" $INDEX_FILE
+
+# Rename
+mv ${PUBLIC}/index.html.tmpl ${PUBLIC}/index.html
+mv ${PUBLIC}/index.html.tmpl.bak ${PUBLIC}/index.html.tmpl
