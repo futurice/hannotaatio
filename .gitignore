@@ -7,6 +7,10 @@ public/hannotaatio.js
 public/view/edittool.js
 public/index.html
 
+# Ignore SQLite databases
+db/development.sqlite
+db/test.sqlite
+
 # Ignore log and temp folders
 log/
 tmp/
