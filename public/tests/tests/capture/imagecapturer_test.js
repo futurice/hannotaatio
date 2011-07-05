@@ -95,7 +95,7 @@ $(document).ready(function(){
     asyncTest('capture() with flash', 13, function() {
 
         var prefs = {
-            assets_url: '../javascripts/capture/assets/',
+		    flash_url: '/flash/capture/',
             crossDomainFileAvailable: true
         }
 
@@ -140,7 +140,7 @@ $(document).ready(function(){
 	asyncTest('injectFlashEncoder()', 3, function() {
 		
 		var prefs = {
-			assets_url: '../javascripts/capture/assets/',
+		    flash_url: '/flash/capture/',
 			crossDomainFileAvailable: true
 		}
 		var imageCapturer = new ImageCapturer(prefs, [], function() {

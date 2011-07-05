@@ -202,7 +202,7 @@ ImageCapturer.prototype.injectFlashEncoder = function(callbackFunction) {
     };
     var attributes = { };
 
-    swfobject.embedSWF(this._prefs.assets_url + 'flash/image_encoder.swf?debug=false&onLoadCallback=' + ImageCapturer.FLASH_LOADED_CALLBACK, ImageCapturer.FLASH_CONTAINER_ID, "1", "1", "9.0.0","expressInstall.swf", flashvars, params, attributes);
+    swfobject.embedSWF(this._prefs.flash_url + 'image_encoder.swf?debug=false&onLoadCallback=' + ImageCapturer.FLASH_LOADED_CALLBACK, ImageCapturer.FLASH_CONTAINER_ID, "1", "1", "9.0.0","expressInstall.swf", flashvars, params, attributes);
 };
 
 ImageCapturer.filenameFromPath = function(imageUrl) {

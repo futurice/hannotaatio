@@ -106,13 +106,13 @@ $(document).ready(function() {
            	'width="110" '+
            	'height="14" '+
            	'id="clippy"> '+
-   			'<param name="movie" value="assets/flash/clippy.swf"/> '+
+   			'<param name="movie" value="flash/index/clippy.swf"/> '+
     		'<param name="allowScriptAccess" value="always" /> '+
     		'<param name="quality" value="high" /> '+
     		'<param name="scale" value="noscale" /> '+
     		'<param NAME="FlashVars" value="text=' + escapeCode($(this).children().first().text()) + '"> '+
     		'<param name="bgcolor" value="#FFFFFF"> '+
-    		'<embed src="assets/flash/clippy.swf" '+
+    		'<embed src="flash/index/clippy.swf" '+
           	'width="110" '+
           	'height="14" '+
            	'name="clippy" '+

@@ -66,6 +66,7 @@ var Preferences = function(sitePrefs) {
     this.api_path = 'api/';
     this.edit_path = 'view/';
     this.images_path = 'images/capture/';
+    this.flash_path = 'flash/capture/';
 
     /**
      * Hannotaatio service main domain. The name must end with a slash '/'.
@@ -92,6 +93,10 @@ var Preferences = function(sitePrefs) {
     
     if(!this.images_url) {
         this.images_url = this.hannotaatio_domain + this.images_path;
+    }
+    
+    if(!this.flash_url) {
+        this.flash_url = this.hannotaatio_domain + this.flash_path;
     }
 
 };
