@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="lib/raphael-min.js"></script>
+        <script type="text/javascript" src="lib/json2.js"></script>
+        
+        <script type="text/javascript" src="Ajax.js"></script>
+        <script type="text/javascript" src="Arrow.js"></script>
+        <script type="text/javascript" src="Box.js"></script>
+        <script type="text/javascript" src="Text.js"></script>
+        <script type="text/javascript" src="UI.js"></script>
+        <script type="text/javascript" src="Utils.js"></script>
+        
+        <!--
+        Use always the distributed version of the javascript file!
+        (Notice: If there is a good reason why not the use the dist file in development mode
+        then don't use it, but be sure to use dist version in production/qa!)
+        -->
+        <script type="text/javascript" src="edittool.js"></script>
+        
+        <link rel="stylesheet" type="text/css" href="assets/css/edit.css" />
+        
+        <title>Hannotaatio</title>
+    </head>
+    <body>
+        <div id="hannotation">
+            <div id="hannotation-toolbar">
+        	<div id="hannotation-toolbar-logo"></div>
+			<div id="hannotation-toolbar-content">
+				<p id="loading-text">Loading...</p>
+                <div id="hannotation-toolbar-color-switcher"></div>
+                <div id="hannotation-toolbar-drawing-tools"></div>
+			</div>
+            </div>
+            <div id="hannotation-page">
+                    <iframe id="capture" scrolling="no"></iframe>
+                    <div id="hannotation-canvas"></div>
+            </div>
+        </div>
+    </body>
+</html>

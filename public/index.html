@@ -1,0 +1,248 @@
+<html>
+<head>
+	<meta name="description" content="Hannotaatio is a visual customer feedback system for Futurice's web projects. Hannotaatio captures the state of the page in customer's browser and customer can give feedback by simply drawing on top of the page in browser." />
+	
+	<link rel="stylesheet" href="stylesheets/index/styles.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="stylesheets/index/jquery.fancybox-1.3.4.css" type="text/css" media="screen" />
+
+	<title>Hannotaatio</title>
+</head>
+<body>
+	
+<a href="https://github.com/futurice/hannotaatio"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://d3nwyuy0nl342s.cloudfront.net/img/edc6dae7a1079163caf7f17c60495bbb6d027c93/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub"></a>
+
+<div id="page-content">
+
+<div id="ilovefeedback">
+	<img src="images/index/i-love-feedback.png" alt="I love Feedback" />
+</div>
+
+<h1>Give and get feedback easily with Hannotaatio</h1>
+
+<div id="steps">
+	<div class="step">
+		<span class="big-number">1.</span>
+		<a class="step" rel="steps" href="images/index/step1.png" title="Step 1: Click the feedback button to capture the page in its current state"><img src="images/index/step1-thumb.png" alt="Step 1" /></a><br/>
+		<span class="description">Click the feedback button to capture the page</span>
+	</div>
+	<div class="step">
+		<span class="big-number">2.</span>
+		<a class="step" rel="steps" href="images/index/step2.png" title="Step 2: Draw annotations on top of the page using the text, arrow and rectangle tools. You can select light or dark annotation colors to match your page. To delete an annotation, simply drag it to the trash bin."><img src="images/index/step2-thumb.png" alt="Step 2" /></a>
+		<span class="description">Draw annotations on top of the page</span>
+	</div>
+	<div class="step">
+	<span class="big-number">3.</span>
+	<a class="step" rel="steps" href="images/index/step3.png" title="Step 3: Publish your annotations and share the annotated page with your stakeholders by providing them a secure link - no authentication required!"><img src="images/index/step3-thumb.png" alt="Step 3" /></a>
+	<span class="description">Publish and share it with stakeholders</span>
+	</div>
+</div>
+
+<div style="clear:both"></div>
+
+<div style="text-align: center">
+	<p>
+		<a id="video" href="http://www.youtube.com/watch?v=p-rKKQoiA-8&autoplay=1&hd=1">
+			<img src="images/index/video.png" alt="Watch the one-minute screencast" />
+		</a>
+	</p>
+	<p>
+		Watch the one-minute screencast
+	</p>
+</div>
+
+<!-- ................ TRY IT ...................................................... -->
+
+<div id="try-it" class="section">
+
+<h2>Try it</h2>
+
+<p>Go and try out the example sites below!</p>
+
+<div id="demo-list">
+	<a href="demos/customer_example2/" class="no-underline">
+		<div class="demo-site hover-effect">
+			<div class="site-name"><h3>Generic website</h3></div>
+			<div class="site-description">Capture and annotate a generic website template</div>
+		</div>
+	</a>
+	<a href="demos/customer_example5/"  class="no-underline">
+		<div class="demo-site hover-effect">
+			<div class="site-name"><h3>Hair salon</h3></div>
+			<div class="site-description">Use username <i>hannotaatio</i> and password <i>demo</i> and open the captured site on another browser to really see that the images were captured</div>
+		</div>
+	</a>
+</div>
+
+<div class="clear"></div>
+
+</div>
+
+<div id="installing" class="section">
+
+<!-- ................ INSTALLATION ...................................................... -->
+
+<h2>Installation</h2>
+
+<p>You can take Hannotaatio into use by simply adding the snippet below into the <code>&lt;head&gt;</code> of the website.</p>
+
+<div id="install-code-clipboard" class="clipboard-wrapper hover-effect">
+<pre>
+&lt;script type="text/javascript" 
+  src="https://hannotaatio.futurice.com/hannotaatio.js"&gt;
+&lt;/script&gt;
+</pre>
+</div>
+
+</div>
+
+<div id="api-key" class="section">
+
+<h2>Installation for production</h2>
+
+<p>For production use we recommend you to generate an API key and provide us an email address. Please type a valid email address we can inform you about service breaks and updates.</p>
+
+<br />
+
+<h3>Generate API key</h3>
+<form action="">
+	Email <input size="50" id="email" name="email" type="email" />
+	<input type="submit" id="submit" name="submit" value="Generate API key" />
+</form>
+
+<div id="installation-loader" class="hidden">
+	Generating API key <img alt="Loader" src="images/index/ajax-loader.gif" style="vertical-align:middle" />
+</div>
+
+<div id="installation-error" class="hidden"></div>
+
+<div id="installation" class="hidden">
+	
+<p id="api-successful"></p>
+	
+<p id="installation-snippet">You can start using Hannotaatio with you API key by simply adding the snippet below into the <code>&lt;head&gt;</code> of the website.</p>
+
+<div id="api-code-clipboard" class="clipboard-wrapper hover-effect">
+	<pre id="installation-code" class="hover-effect"></pre>
+</div>
+
+</div> <!-- installation -->
+</div> <!-- section -->
+
+<!-- ................ ADVANCED ...................................................... -->
+
+<div id="advanced" class="section">
+
+<h2>Advanced options</h2>
+
+<p>As with the API key, you set parameters to Hannotaatio using global <code>window._hannotaatioPreferences</code> variable. <code>_hannotaatioPreferences</code> is a plain JavaScript object which takes key/value pairs.</p>
+
+<table>
+	<thead>
+		<tr>
+			<th></th>
+			<th>Value</th>
+			<th>Description</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td class="key">apiKey</td>
+			<td class="value">string</td>
+			<td class="desc">Your API key.</td>
+		</tr>
+		<tr>
+			<td class="key">captureStylesheets</td>
+			<td class="value">true / false</td>
+			<td class="desc">Captures stylesheets linked to the page. Only stylesheets hosted on the local domain will be captured.</td>
+		</tr>
+		<tr>
+			<td class="key">captureImages</td>
+			<td class="value">true / false</td>
+			<td class="desc">Captures images on the page.</td>
+		</tr>
+		<tr>
+			<td class="key">crossDomainFileAvailable</td>
+			<td class="value">true / false</td>
+			<td class="desc">Due to Flash security restrictions, a <code>crossdomain.xml</code> file has to be available from the server root, e.g., http://mydomain.com/crossdomain.xml. Example of <a href="crossdomain.xml">crossdomain.xml</a></td>
+		</tr>
+		<tr>
+			<td class="key">notificationEmails</td>
+			<td class="value">Array of strings</td>
+			<td class="desc">List of email addresses where a notification email will be sent to after a new Hannotaatio has been published. At sign (@) and dots (.) can be replaced with <code>' at '</code> and <code>' dot '</code>. See the example below.</td>
+		</tr>
+	</tbody>
+	
+</table>
+
+<h3>Complete example of advanced options</h3>
+<div id="advanced-clipboard" class="clipboard-wrapper hover-effect">
+<pre>
+&lt;script type="text/javascript"&gt; 
+  window._hannotaatioPreferences = {
+    apiKey: 'XXXXXXXXXXXXXXX'
+
+    /* Advances options */
+
+    captureStylesheets: true,
+
+    captureImages: false,
+
+    crossDomainFileAvailable: false,
+
+    notificationEmails: [
+      'developer@hannotaatio.com',
+      'project dot manager at hannotaatio dot com'
+    ]
+  };
+&lt;/script&gt;
+&lt;script type="text/javascript" 
+  src="https://hannotaatio.futurice.com/capturer/capturetool.js"&gt;
+&lt;/script&gt;
+</pre>
+</div>
+
+</div>
+
+<!-- ................ BOOKMARKLET ...................................................... -->
+
+<div id="bookmarklet" class="section">
+<h2><i>Experimental:</i> Use it on any page</h2>
+<p>Drag or save this link to your bookmarks:
+	<a id="bookmarklet" href="javascript:(function(){document.body.appendChild(document.createElement('script')).src='https://hannotaatio.futurice.com/hannotaatio.js';})();">Enable Hannotaatio</a>
+</p>
+</div>
+
+<!-- ................ COPYRIGHT ...................................................... -->
+
+<div id="copyright">
+	<p>Copyright <a href="http://www.futurice.com">Futurice</a> Oy. Hannotaatio front-end running on version @VERSION@</p>
+</div>
+
+</div> <!-- #page-content -->
+
+<div id="footer">
+	<!-- Background image here -->
+</div>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+<script type="text/javascript" src="/hannotaatio.js"></script>
+<script type="text/javascript" src="javascripts/index/jquery.fancybox-1.3.4.pack.js"></script>
+<script type="text/javascript" src="javascripts/index/jquery.easing-1.3.pack.js"></script>
+<script type="text/javascript" src="javascripts/index/jquery.color.js"></script>
+<script type="text/javascript" src="javascripts/index/hannotaatio-home.js"></script>
+
+<!-- Piwik --> 
+<script type="text/javascript">
+var pkBaseURL = (("https:" == document.location.protocol) ? "https://analytics.futurice.com/piwik/" : "http://analytics.futurice.com/piwik/");
+document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript">
+try {
+var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 14);
+piwikTracker.trackPageView();
+piwikTracker.enableLinkTracking();
+} catch( err ) {}
+</script><noscript><p><img src="http://analytics.futurice.com/piwik/piwik.php?idsite=14" style="border:0" alt="" /></p></noscript>
+<!-- End Piwik Tracking Code -->
+
+</body>
+</html>

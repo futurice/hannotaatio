@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+	<title>Hair Salon</title>
+	<link rel="stylesheet" href="style.css" type="text/css" charset="utf-8" />	
+	
+</head>
+
+<body>
+
+<div id="wrapper">
+	<h1><span class="hone"><em>S</em>tyle</span>
+	    <span class="htwo">HAIR SALON</span>
+	    <span class="hthree">CREATE YOUR STYLE WITH US</span></h1>
+	<div id="head-1"></div>
+	<div id="head-2"></div>
+	<div id="nav">
+		<ul>
+		  <li><a href="http://www.freewebsitetemplates.com">HOME</a></li>
+		  <li><a href="http://www.freewebsitetemplates.com">ABOUT SALON</a></li>
+		  <li><a href="http://www.freewebsitetemplates.com">SERVICES</a></li>
+		  <li><a href="http://www.freewebsitetemplates.com">OUR MASTERS</a></li>
+		  <li class="last"><a href="http://www.freewebsitetemplates.com">CONTACT US</a></li>
+		</ul>
+	</div>
+	<div id="body-left">
+		<h2><em>G</em>allery</h2>
+		<div id="gallery">
+			<div class="gal" id="gzero"><a href="http://www.freewebsitetemplates.com"><img src="images/pic_1.jpg" width="221" height="163" alt="Pic 1" /></a></div>
+			<div class="gal" id="gone"><a href="http://www.freewebsitetemplates.com"><img src="images/pic_2.jpg" width="57" height="41" alt="Pic 2" /></a></div>
+			<div class="gal" id="gtwo"><a href="http://www.freewebsitetemplates.com"><img src="images/pic_3.jpg" width="57" height="41" alt="Pic 3" /></a></div>
+			<div class="gal" id="gthree"><a href="http://www.freewebsitetemplates.com"><img src="images/pic_4.jpg" width="57" height="41" alt="Pic 4" /></a></div>
+			<div class="clear"></div>
+		</div>
+	</div>
+	<div id="body-right">
+		<h2><em>W</em>elcome</h2>
+		<p>Don't forget to check <a href="http://www.freewebsitetemplates.com">free website templates</a> every day, because we add  a new free website template almost daily.</p>
+        <p>You can remove any link to our websites from this template you're free to use the template without linking back to us.</p>
+        <p>This is just a place holder so you can see how the site would look like.</p>
+        <p>This is a template designed by free website templates for you for free you can replace all the text by your own text.</p>
+        <p>Even more websites all about website templates on <a href="http://www.justwebtemplates.com">Just Web Templates</a>.</p>
+        <p>If you're looking for beautiful and professionally made templates you can find them at <a href="http://www.templatebeauty.com">Template Beauty</a>.</p>
+        <p>If you're having problems editing the template please don't hesitate to ask for help on <a href="http://www.freewebsitetemplates.com/forum/">the forum</a>.</p>
+  </div>
+	<div class="clear spacer"></div>
+	<div id="footer">
+		&copy; 2007 Hair salon
+	</div>
+</div>
+
+</body>
+</html>

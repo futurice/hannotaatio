@@ -1,0 +1,25 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  uuid: MyString
+  site_name: MyString
+  capture_time: 2010-12-02 00:00:01
+  captured_url: MyString
+
+two:
+  uuid: MyString
+  site_name: MyString
+  capture_time: 2010-12-02 00:00:01
+  captured_url: MyString
+
+anno1:
+  id: 42
+  uuid: 550e8400-e29b-41d4-a716-446655440000
+  site_name: Nonexistent.com
+  capture_time: 2010-12-02 00:00:01
+  captured_url: www.nonexistent.com/index.html
+  created_at: 1910-08-31 23:59:11
+  updated_at: 1968-03-21 21:30:25
+  body_width: 1920
+  body_height: 1080
+  browser: Awesome Browser 21.3

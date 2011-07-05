@@ -1,0 +1,164 @@
+html, body, ul, li, h1, h2, h3, h4 {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+img {
+	border: 0;
+}
+a {
+	color: #fff;
+}
+a:hover {
+	color: #F2AB9E;
+}
+.clear {
+	clear: both;
+}
+
+body {
+	background: black;
+	text-align: center;
+	color: white;
+	font: 11px verdana, sans-serif;
+}
+#wrapper {
+	text-align: left;
+	margin: 15px auto;
+	width: 778px;
+	position: relative;
+	background: maroon url(images/bg.jpg) repeat-y;
+	border: 5px solid #750306;
+}
+#head-1 {
+	background: url(images/head_1.jpg) no-repeat;
+	width: 409px;
+	height: 386px;
+	top: 0;
+	left: 369px;
+	position: absolute;
+}
+#head-2 {
+	background: url(images/head_2.jpg) no-repeat;
+	width: 156px;
+	height: 38px;
+	top: 386px;
+	left: 622px;
+	position: absolute;
+}
+
+#nav {
+	margin: 11px 0 25px 35px;
+	color: #C15D4B;
+}
+#nav a {
+  text-decoration: none;
+  color: black;
+}
+#nav li {
+  background: bottom left url(images/nav_bg.jpg) no-repeat;
+  _height: 1%;
+  padding: 8px 12px 16px 110px;
+}
+#nav li.last {
+  background: bottom left url(images/nav_bg_last.jpg) no-repeat;
+}
+#gallery img {
+	display: block;
+}
+h1 {
+  height: 172px;
+  background: url(images/logo.jpg) no-repeat;
+  color: black;
+  font-weight: normal;
+}
+h1 span {
+  display: block;
+}
+h1 em {
+  font-style: normal;
+  color: white;
+  padding-right: 3px;
+}
+h1 .hone {
+  padding: 65px 0 0 58px;
+  font: 50px Keaton, "Arial Narrow", "Tahoma", arial, sans-serif;
+}
+h1 .htwo {
+  position: relative;
+  top: -0.5em;
+  left: 7.5em;
+  font-size: 18px;
+}
+h1 .hthree {
+  position: relative;
+  top: -1.0em;
+  left: 4.5em;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #E3C0C1;
+}
+h2 {
+  background: 120px 0.5em url(images/dot_dot_dash.jpg) no-repeat;
+  font: 24px verdana, sans-serif;
+  font-weight: normal;
+  font-style: italic;
+  color: black;
+}
+h2 em {
+  color: white;
+}
+
+#body-left {
+	float: left;
+	width: 278px;
+	padding-left: 28px;
+}
+#gallery {
+	border: 1px solid #9F0408;
+	background: #750306;
+	margin: 13px 10px 0 6px;
+	height: 261px;
+	position: relative;
+}
+.gal {
+	background: #9F0408;
+	padding: 4px;
+	position: absolute;
+}
+#gzero {
+	top: 13px;
+	left: 15px;
+	width: 221px;
+}
+#gone {
+	top: 200px;
+	left: 15px;
+	width: 57px;
+}
+#gtwo {
+	top: 200px;
+	left: 98px;
+	width: 57px;
+}
+#gthree {
+	top: 200px;
+	left: 179px;
+	width: 57px;
+}
+
+#body-right {
+	float: right;
+	width: 388px;
+	padding-right: 22px;
+}
+
+#footer {
+	text-align: right;
+	color: #CD3639;
+	border-top: 1px solid #983234;
+	padding: 6px 25px 20px 0;
+}
+.spacer {
+	height: 18px;
+}

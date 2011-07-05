@@ -1,0 +1,16 @@
+HannotaatioServerNew::Application.routes.draw do
+
+  resources :dummy_scaffolds
+
+  resources :annotations, :only => [:show, :create, :destroy] do
+    
+    resources :annotations, :only => [:index, :create], :controller => :hannotations
+    
+    match "/capture" =>       "captured_files#index", :via => :get
+    match "/capture/*path" => "captured_files#show", :via => :get
+    
+  end
+  
+  resources :api_key
+
+end

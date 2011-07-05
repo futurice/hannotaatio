@@ -1,0 +1,11 @@
+# Ignore files containing keys and passwords
+config/keys.yml
+config/database.yml
+
+# Ignore compiled code
+public/hannotaatio.js
+public/view/edittool.js
+
+# Ignore log and temp folders
+log/
+tmp/

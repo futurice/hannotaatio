@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="qunit.css" type="text/css" media="print, screen" />
+  
+  <!-- Qunit -->
+  <script type="text/javascript" src="qunit.js"></script>
+
+  <!-- Testing utils -->
+  <script type="text/javascript" src="testing_utils.js"></script>
+  
+  <!-- Firebug lite is handy for IE debugging, but sometimes it messes up the tests, for example
+  	   when we are testing DOM cloning, Firebug adds some extra stuff to DOM which breaks the test -->
+  <!-- <script type="text/javascript" src="https://getfirebug.com/firebug-lite.js"></script> -->
+
+  <!-- Capture tool classes -->
+  <script type="text/javascript" src="../src/capture/CaptureUtils.js"></script>
+  <script type="text/javascript" src="../src/capture/Preferences.js"></script>
+  <script type="text/javascript" src="../src/capture/Capturer.js"></script>
+  <script type="text/javascript" src="../src/capture/Uploader.js"></script>
+  <script type="text/javascript" src="../src/capture/URL.js"></script>
+  <script type="text/javascript" src="../src/capture/ImageCapturer.js"></script>
+
+  <!-- Edit tool classes -->
+  <script type="text/javascript" src="../src/edit/Ajax.js"></script>
+  <script type="text/javascript" src="../src/edit/Arrow.js"></script>
+  <script type="text/javascript" src="../src/edit/Box.js"></script>
+  <script type="text/javascript" src="../src/edit/Text.js"></script>
+  <script type="text/javascript" src="../src/edit/UI.js"></script>
+  <script type="text/javascript" src="../src/edit/Utils.js"></script>
+  <script type="text/javascript" src="../src/edit/EditPreferences.js"></script>
+
+  <!-- Edit tool tests -->
+  <script type="text/javascript" src="tests/edit/utils_test.js"></script>
+  <script type="text/javascript" src="tests/edit/preferences_test.js"></script>
+
+  <!-- Capture tool tests -->
+  <script type="text/javascript" src="tests/capture/utils_test.js"></script>
+  <script type="text/javascript" src="tests/capture/url_test.js"></script>
+  <script type="text/javascript" src="tests/capture/preferences_test.js"></script>
+  <script type="text/javascript" src="tests/capture/capturer_test.js"></script>
+  <script type="text/javascript" src="tests/capture/stylesheet_test.js"></script>
+  <script type="text/javascript" src="tests/capture/imagecapturer_test.js"></script>
+
+  <!-- Style sheet testing -->
+  <link id="imageUrlCss" type="text/css" rel="stylesheet" href="resources/capture_css_test_image_url.css" />
+  <link id="printStylesheet" type="text/css" rel="stylesheet" href="resources/capture_css_test_print.css" media="print" />
+  <style id="importStyleTag" type="text/css">@import url('resources/capture_css_test_import_from_style_tag.css'); </style>
+  <style id="styletagBefore" type="text/css"></style>
+  <link type="text/css" rel="stylesheet" href="resources/capture_css_test_stylesheet.css" />
+  <style id="styletagAfter" type="text/css"></style>
+  <link id="importLink" type="text/css" rel="stylesheet" href="resources/capture_css_test_import.css" />
+  <link id="recursiveImport" type="text/css" rel="stylesheet" href="resources/capture_css_test_recursive_import.css" />
+  <link id="initialStylesheet" type="text/css" rel="stylesheet" href="resources/capture_css_test_initial.css" />
+  <style id="uniqueStyleTag" type="text/css">.unique_hannotaatio_css_rule { } </style>
+
+</head>
+<body>
+  <h1 id="qunit-header">Hannotaatio front-end unit tests</h1>
+ <h2 id="qunit-banner"></h2>
+ <h2 id="qunit-userAgent"></h2>
+ <ol id="qunit-tests"></ol>
+ <div id="qunit-fixture">
+ 	<img id="red_dot" src="resources/red_dot.png" />
+ 	<img id="flower" src="resources/flower.jpg" />
+	<img id="flower2" src="resources/flower.jpg" />
+ </div>
+ <div id="debug-console"></div>
+</body>
+</html>

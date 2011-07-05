@@ -1,0 +1,2 @@
+#hannotaatio_image_test { background: #fff url("flower.jpg") no-repeat 20px 100px fixed }
+#hannotaatio_image_test_absolute { background-image: url("http://image.hannitaatio.com/pictures/flower.jpg")}

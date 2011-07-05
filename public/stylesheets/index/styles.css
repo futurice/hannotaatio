@@ -1,0 +1,208 @@
+body {
+	font-family: 'Arial', sans-serif;
+	color: #333333;
+	margin: 0;
+	padding: 0;
+	background: url("../../images/index/grain-bg.png") #FFF top repeat-x;
+	font-size: 15px;
+}
+
+#page-content {
+	width: 840px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3 {
+    font-family: "museo-sans-1", "museo-sans-2", 'Gill Sans', 'Century Gothic', 'Arial', sans-serif;
+    line-height: 0.81;
+    color: rgb(19, 40, 5);
+	font-weight: 300;
+}
+
+h1 {
+	text-align: center;
+	border-top: 1px solid #CCC;
+	border-bottom: 1px solid #CCC;
+	font-size: 40px;
+	padding: 0.5em;
+	color: grey;
+	margin: 0.5em 0 1em 0;
+}
+
+h2 {
+    font-family: 'Georgia', 'Palatino Linotype', 'Book Antiqua', 'Palatino', serif;
+    font-style: italic;
+    line-height: 1;
+    margin-top: 0.2em;
+    color: rgb(76, 144, 24);
+	border-bottom: 1px dotted #CCC;
+}
+
+p {
+	line-height: 1.7;
+	font-weight: 300;
+}
+
+a {
+	color: #333333;
+}
+
+#footer {
+	height: 120px;
+	background: url("../../images/index/footer.png") center;
+}
+
+.section {
+	padding-bottom: 70px;
+}
+
+#ilovefeedback {
+	text-align: center;
+}
+
+#copyright {
+	clear: both;
+	font-size: 0.9em;
+	text-align: center;
+	padding-top: 2em;
+}
+
+pre {
+	border: 1px dashed #CCCCCC;
+	padding: 10px 10px 24px 10px;
+	font-size: 0.9em;
+}
+
+/* Steps */
+
+div#steps {
+	text-align:center;
+	margin: 2em 0;
+}
+
+div.step {
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+	margin: 0 3em;
+	width: 177px;
+}
+
+div.step .big-number {
+	font-size: 200%;
+	color: #ccc;
+	position: absolute;
+	top: 0;
+	left: -30px;
+}
+
+div.step img {
+	margin: 5px;
+}
+
+div.step .description {
+}
+
+#fancybox-title-over {
+	font-family: "Myriad Pro", "Helvetica", Arial, Helvetica, sans-serif;
+	font-size: 1.3em;
+}
+
+a#bookmarklet {
+	border: 1px solid gray;
+	background: lightgray;
+	border-radius: 5px;
+	padding: 8px;
+	margin: 5px;
+	text-decoration: none;
+}
+
+a#bookmarklet:hover {
+	background: #ccc;
+}
+
+.demo-list {
+	height: 300px;
+}
+
+.demo-site {
+	float: left;
+	width: 300px;
+	height: 140px;
+	border: 1px solid #CCC;
+	margin: 20px;
+	padding: 10px 25px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+}
+
+.hidden {
+	display: none;
+}
+
+#installation-error {
+	color: red;
+}
+
+.clear {
+	clear: both;
+}
+
+.hover-effect {
+	background-color: rgb(245, 245, 245);
+}
+
+strong {
+	font-weight: bold;
+}
+
+.no-underline {
+	text-decoration: none;
+}
+
+.clipboard-wrapper {
+	position: relative;
+}
+
+.clippy-button {
+	position: absolute;
+	left: 4px;
+	bottom: 4px;
+}
+
+table {
+	font-size: 14px;
+	width: 100%;
+	border-collapse: separate;
+	border-spacing: 0;
+	margin: 30px 0px 60px 0px;
+}
+
+th {	
+	height: 40px;
+	line-height: 30px;
+	border-bottom: 1px solid #cdcdcd;
+}
+
+td {
+	height: 40px;
+	line-height: 30px;
+	border-bottom: 1px solid #cdcdcd;
+	text-align: center;
+	padding: 5px 20px;
+}
+
+td.value {
+	white-space: nowrap;
+}
+
+td.desc {
+	text-align: left;
+}
+
+td.key {
+	color: rgb(76, 144, 24);
+	font-weight: bold;
+}
