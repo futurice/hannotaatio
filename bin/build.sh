@@ -68,7 +68,6 @@ echo '*** Adding version number to index page ***'
 INDEX_FILE="${PUBLIC}/index.html.tmpl"
 str='@VERSION@'
 
-# Notice: Sed implementions differ. The line below works in Linux (CI server) but not in Mac OSX
 sed -i".bak" "s/$str/$VERSION_NUMBER/g" $INDEX_FILE
 
 # Rename
