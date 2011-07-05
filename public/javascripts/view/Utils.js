@@ -1,16 +1,13 @@
 /** 
  * @preserve
  * 
- * Hannotaatio Edit Tool
- * // @VERSION_INFO@
+ * Hannotaatio Edit Tool @VERSION_INFO@
  * 
  */
-
 // License and version information here, because Utils.js is the first 
 // file in the compiled/minified js file
 
 /**
- *
  * @constructor
  */
 var Utils = function() {

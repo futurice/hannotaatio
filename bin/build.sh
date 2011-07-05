@@ -49,35 +49,19 @@ java -jar ../tools/compiler.jar \
 
 # Builds dist js files with version number header
 
-echo "*** Create version number file ***"
+echo "*** Create version number ***"
 
-WORKING_DIR=`pwd`
-VERSION_FILE="${TMP}/version_number"
-VERSION_SCRIPT_PATH="../../"
-VERSION_SCRIPT="version_number.sh"
-
-cd $VERSION_SCRIPT_PATH
-VERSION_NUMBER=`sh $VERSION_SCRIPT`
+VERSION_NUMBER=`git describe`
 echo "Current version is $VERSION_NUMBER"
 
-cd $WORKING_DIR
-echo " * version: $VERSION_NUMBER" > $VERSION_FILE
+echo '*** Adding version numbers to capture/edittool***'
 
-echo '*** Adding version number to capture tool ***'
+str='@VERSION_INFO@'
+sed -i "" "s/$str/$VERSION_NUMBER/g" ${TMP}/hannotaatio_capture_tool_compiled.js
+sed -i "" "s/$str/$VERSION_NUMBER/g" ${TMP}/hannotaatio_edit_tool_compiled.js
 
-echo 'Adding version number'
-str='\/\/ @VERSION_INFO@'
-sed -e "/$str/r $VERSION_FILE" -e "/$str/d" ${TMP}/hannotaatio_capture_tool_compiled.js > ${TMP}/capturetool.js
-
-cp ${TMP}/capturetool.js ${PUBLIC}/hannotaatio.js
-
-echo '*** Adding version number to edit tool ***'
-
-echo 'Adding version number'
-str='\/\/ @VERSION_INFO@'
-sed -e "/$str/r $VERSION_FILE" -e "/$str/d" ${TMP}/hannotaatio_edit_tool_compiled.js > ${TMP}/edittool.js
-
-cp ${TMP}/edittool.js ${PUBLIC}/view/edittool.js
+cp ${TMP}/hannotaatio_capture_tool_compiled.js ${PUBLIC}/hannotaatio.js
+cp ${TMP}/hannotaatio_edit_tool_compiled.js ${PUBLIC}/view/edittool.js
 
 echo '*** Adding version number to index page ***'
 
@@ -85,4 +69,4 @@ INDEX_FILE="${PUBLIC}/index.html"
 str='@VERSION@'
 
 # Notice: Sed implementions differ. The line below works in Linux (CI server) but not in Mac OSX
-sed -i "s/$str/$VERSION_NUMBER/g" $INDEX_FILE
+sed -i "" "s/$str/$VERSION_NUMBER/g" $INDEX_FILE

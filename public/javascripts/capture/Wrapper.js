@@ -1,8 +1,7 @@
 /** 
  * @preserve
  * 
- * Hannotaatio Capture Tool
- * // @VERSION_INFO@
+ * Hannotaatio Capture Tool @VERSION_INFO@
  * 
  */
 
