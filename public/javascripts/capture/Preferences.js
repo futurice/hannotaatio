@@ -74,7 +74,7 @@ var Preferences = function(sitePrefs) {
      * http://hannotaatio.futurice.com/ or https://hannotaatio.futurice.com
      * http://localhost:8000/
      */
-    this.hannotaatio_domain = window.location.protocol + '//' + document.domain + ':' + window.location.port + '/';
+    this.hannotaatio_domain = window.location.protocol + '//hannotaatio.futurice.com/'
 
     // Add (and overwrite if needed) custom preferences
     for (key in sitePrefs) {
