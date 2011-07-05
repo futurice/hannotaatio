@@ -25,6 +25,7 @@ $(document).ready(function($){
     
     var prefs = new Preferences(window._hannotaatioPreferences);
     
+    /*
     $('<div id="hannotaatio-capture" title="Give feedback on this page"/>').css({
         'width': '73px',
         'height': '57px',
@@ -40,6 +41,10 @@ $(document).ready(function($){
     }, function(){
         $(this).css('background-position', '');
     }).click(capture).prependTo($(document.body));
+    */
+    
+    var ui = new CaptureUI(prefs);
+    ui.createButton(document.body, capture);
     
     // Preload loading spinner
     loaderImg = new Image();
