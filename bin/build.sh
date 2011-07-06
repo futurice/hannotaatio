@@ -25,6 +25,7 @@ java -jar ../tools/compiler.jar \
 	--js ${SRC_CAPTURE}/Uploader.js \
 	--js ${SRC_CAPTURE}/lib/json2.js \
 	--js ${SRC_CAPTURE}/ImageCapturer.js \
+	--js ${SRC_CAPTURE}/CaptureUI.js \
 	--js ${SRC_CAPTURE}/capturetool.js \
 	--js_output_file ${TMP}/hannotaatio_capture_tool_compiled_tmp.js
 	
