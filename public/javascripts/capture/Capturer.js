@@ -13,7 +13,7 @@ var Capturer = function($element, prefs) {
     if (!CaptureUtils.isJQuery($element)) {
         throw new Error('Given element must be of type jQuery.');
     }
-    this.prefs = prefs;
+    this.prefs = prefs || {};
 
     // Do capture
     this.$elementToCapture = $(CaptureUtils.clone($element.get(0)));
@@ -264,6 +264,63 @@ Capturer.prototype.replaceStylesheet = function(stylesheet, $newStylesheet,
     // Remove original element
     $owner.remove();
 };
+
+/**
+ * Capture images. Return true if images were actually captured,
+ * otherwise return false. Callback is called after the operation
+ * is done
+ */
+
+Capturer.prototype.captureImages = function(callback) {
+    var prefs = this.prefs;
+    var capturer = this;
+    
+    if (prefs.captureImages) {
+        var imageUrls = capturer.getUniqueImageURLs();
+        var imageCapturer = new ImageCapturer(prefs, imageUrls, function(capturingMethod){
+            if (capturingMethod === ImageCapturer.Method.NONE) {
+                capturer.replaceRelativeImgUrls();
+                callback(false); // return false since images were not captured
+            }
+            else {
+                this.capture(function(images){
+                    capturer.setCapturedImages(images);
+                    capturer.updateImageUrls();
+                    callback(true); // images captured
+                });
+            }
+        });
+    }
+    else {
+        capturer.replaceRelativeImgUrls();
+        callback(false); // not captured
+    }
+};
+
+/*
+var captureImages = function(){
+    if (prefs.captureImages) {
+        var imageUrls = capturer.getUniqueImageURLs();
+        var imageCapturer = new ImageCapturer(prefs, imageUrls, function(capturingMethod){
+            if (capturingMethod === ImageCapturer.Method.NONE) {
+                capturer.replaceRelativeImgUrls();
+                upload();
+            }
+            else {
+                this.capture(function(images){
+                    capturer.setCapturedImages(images);
+                    capturer.updateImageUrls();
+                    upload();
+                });
+            }
+        });
+    }
+    else {
+        capturer.replaceRelativeImgUrls();
+        upload();
+    }
+}
+*/
 
 /**
  * Sets captured image

@@ -173,7 +173,24 @@ $(document).ready(function(){
 		okValue = bgPosIndex != -1;
 		
 		ok(okValue, 'BG Index was ' + bgPosIndex);
-    });	
+    });
+    
+    asyncTest('captureImages', 4, function() {
+        var capturer;
+        
+        capturer = new Capturer($('html'), {captureImages: true, crossDomainFileAvailable: true});
+        capturer.captureImages(function(captured) {
+            ok(true, 'should always call callback');
+            equals(captured, true, 'should call callback with true (captureImages set true)');
+            start();
+        });
+        
+        capturer = new Capturer($('html'));
+        capturer.captureImages(function(captured) {
+            ok(true, 'should always call callback');
+            equals(captured, false 'should call callback with false (does not capture images by default)');
+        });
+    });
 });
 
 
