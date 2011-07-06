@@ -71,6 +71,7 @@ Hannotaatio was made as a school project for a [Software Development Project](ht
 *   Martin Richter (Aalto University student, Futurice employee)
 *   Kim Dikert (Aalto University student)
 *   Yu Shen (Aalto University student)
+*   Maksim Luzik (Aalto University student)
 
 **Product owner**
 
