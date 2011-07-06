@@ -48,6 +48,34 @@ $(document).ready(function(){
 		equals(local, 10, 'Detected local stylesheets');
 		equals(other, 0, 'Detected other than local stylesheets');
 	});
+	
+	test("captureStylesheet", 4, function() {
+	    var called1 = false;
+	    var called2 = false;
+	    var calledWithTrue = false;
+	    var calledWithFalse = false;
+	    
+	    stop();
+	    stop();
+	    
+	    var capturer = new Capturer($('html'), {captureStylesheets: false});
+	    capturer.captureStylesheets(function(captured) {
+	        called1 = true;
+	        calledWithFalse = captured === false;
+	        start();
+	    });
+	    var capturer = new Capturer($('html'));
+	    capturer.captureStylesheets(function(captured) {
+            called2 = true;
+	        calledWithTrue = captured === true;
+	        start();
+	    });
+	    
+	    equals(called1, true, 'should always call the callback');
+	    equals(called2, true, 'should always call the callback');
+	    equals(calledWithFalse, true, 'should return false if stylesheets were not captured');
+	    equals(calledWithTrue, true, 'should capture by default and should return true');
+	});
 
 	test("Removes link elements with url pointing to local domain", function() {
 

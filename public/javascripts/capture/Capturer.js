@@ -75,36 +75,46 @@ Capturer.prototype.removeCaptureControls = function() {
  * @param {Function} callback callback function.
  */
 Capturer.prototype.captureStylesheets = function(callback) {
-    var stylesheets = document.styleSheets;
+    var stylesheetsCaptured = false;
+    
+    var capture
+    if(!(this.prefs && !this.prefs.captureStylesheets)) {
+        
+    }
+    
+    // Capture by default
+    if(!(this.prefs && this.prefs.captureStylesheets === false)) {
+    
+        var stylesheets = document.styleSheets;
+        for (var i = stylesheets.length - 1; i >= 0; i--) {
 
-    for (var i = stylesheets.length - 1; i >= 0; i--) {
+            var styleSheet = document.styleSheets[i];
+            var captureMedia = this.hasCapturableMediaType(styleSheet);
 
-        var styleSheet = document.styleSheets[i];
+            if (captureMedia === true) {
 
-        var captureMedia = this.hasCapturableMediaType(styleSheet);
+                var href = styleSheet.href;
+                var hasHref = href !== null &&
+                        href !== undefined && href.length > 0;
+			    var stylesheetUrl = new URL(href);
 
-        if (captureMedia === true) {
-
-            var href = styleSheet.href;
-            var hasHref = href !== null &&
-                    href !== undefined && href.length > 0;
-			var stylesheetUrl = new URL(href);
-
-            if (hasHref) {
-                if (stylesheetUrl.isSameDomain) {
-                    this.captureStylesheet(styleSheet, i);
+                if (hasHref) {
+                    if (stylesheetUrl.isSameDomain) {
+                        this.captureStylesheet(styleSheet, i);
+                    } else {
+                        this.captureOtherDomainStylesheet(styleSheet, i);
+                    }
                 } else {
-                    this.captureOtherDomainStylesheet(styleSheet, i);
+                    // Doesn't have href. So it's <style> tag. Capture.
+                    this.captureStylesheet(styleSheet, i);
                 }
-            } else {
-                // Doesn't have href. So it's <style> tag. Capture.
-                this.captureStylesheet(styleSheet, i);
             }
         }
+        stylesheetsCaptured = true
     }
 
     if (typeof callback === 'function') {
-        callback();
+        callback(stylesheetsCaptured);
     }
 };
 
