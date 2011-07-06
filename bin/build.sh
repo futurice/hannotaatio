@@ -30,6 +30,7 @@ java -jar ../tools/compiler.jar \
 	--js_output_file ${TMP}/hannotaatio_capture_tool_compiled_tmp.js
 	
 echo 'Wrap the compiled code in a wrapper'
+# Notice that the wrapper file contains also license and version information
 str='\/\/ @OUTPUT@'
 sed -e "/$str/r ${TMP}/hannotaatio_capture_tool_compiled_tmp.js" -e "/$str/d" ${SRC_CAPTURE}/Wrapper.js > ${TMP}/hannotaatio_capture_tool_compiled.js
 
@@ -38,6 +39,8 @@ echo "*** Compiling Edit tool ***"
 OUTPUT_FILE=${TMP}/hannotaatio_edit_tool_compiled.js
 
 java -jar ../tools/compiler.jar \
+    --js ${SRC_EDIT}/MIT-LICENSE.js \
+    --js ${SRC_EDIT}/Version.js \
 	--js ${SRC_EDIT}/Utils.js \
 	--js ${SRC_EDIT}/Arrow.js \
 	--js ${SRC_EDIT}/Box.js \
