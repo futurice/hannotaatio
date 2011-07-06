@@ -13,21 +13,34 @@ Go to [https://hannotaatio.futurice.com](https://hannotaatio.futurice.com) for i
 Setting up your own Hannotaatio instance
 ----------------------------------------
 
+**Requirements**
+* Ruby 1.9.2
+* Rails 3.0.8
+* Amazon AWS account for S3 and SES (optional)
+
+**Installation steps**
+
 1. `git clone git@github.com:futurice/hannotaatio.git`
 2. `cd hannotaatio`
 
-3. `cp config/keys.yml.tmpl config/keys.yml`
-4. `cp config/database.yml.tmpl config/database.yml`
+3. `bundle install`
 
-5. Open the config/keys.yml file and edit:
+4. `cp config/keys.yml.tmpl config/keys.yml`
+5. `cp config/database.yml.tmpl config/database.yml`
+
+6. Open the config/keys.yml file and edit:
    * Amazon Web Service credentials
    * secret_token (see "Generate secret token")
 
-6. Open the config/database.tmpl file and edit it to correspond your own database setup
+7. Open the config/database.tmpl file and edit it to correspond your own database setup
 
-7. `cd bin`
-8. `sh build.sh`
-9. `cd ..`
+8. Open environment config files config/environments/*.rb and edit them to correspond your own setup. You might want to edit at least:
+   * File storage configurations
+   * Email delivery method
+
+9. `cd bin`
+10. `sh build.sh`
+11. `cd ..`
 
 10. `rails server`
 
@@ -43,20 +56,29 @@ To test your local API you can use the two example sites:
 * [http://localhost:3000/demos/customer_example2/index-local.html](http://localhost:3000/demos/customer_example2/index-local.html)
 * [http://localhost:3000/demos/customer_example5/index-local.html](http://localhost:3000/demos/customer_example5/index-local.html)
 
-Notice that instead of using _index.html_ you should use _index-local.html_ for you local testing since those files have been configured to use the API running at localhost:3000. Feel free to modify the `_hannotaatioPreferences` on the index-local.html files.
+Notice that instead of using _index.html_ you should use _index-local.html_ for local testing since those files have been configured to use the API running at localhost:3000. Feel free to modify the `_hannotaatioPreferences` on the index-local.html files.
 
 Generating secret token
 -----------------------
 
 The _secret_token_ is a 128-character string. You can use IRB (Interactive Ruby Shell) to generate the secret_token:
 
-`irb`
-
-`>> require 'active_support'`
-
-`>> ActiveSupport::SecureRandom.hex(64)` 
+1. `irb`
+2. `>> require 'active_support'`
+3. `>> ActiveSupport::SecureRandom.hex(64)` 
 
 On local development environment the `secret_token` is optional.
+
+Running tests
+-------------
+
+**Backend unit tests**
+
+`bundle exec rake test`
+
+**Frontend unit tests**
+
+Browse to [http://localhost:3000/tests/](http://localhost:3000/tests/)
 
 Authors
 -------
