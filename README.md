@@ -46,7 +46,7 @@ Setting up your own Hannotaatio instance
 
 14. `rails server`
 
-15. Open your browser and go to [http://localhost:3000](http://localhost:3000)
+15. Open your browser and try out the example sites e.g. [http://localhost:3000/demos/customer_example2/index-local.html](http://localhost:3000/demos/customer_example2/index-local.html)
 
 Local testing
 -------------
