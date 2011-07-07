@@ -8,7 +8,6 @@ http://localhost:3000/annotations?annotation[uuid]=7846-abc5-b349&annotation[sit
 
   def setup
     @anno1 = annotations(:anno1)
-    @cap_file_1 = captured_files(:cap_file_1)
   end
 
   def teardown
@@ -61,15 +60,5 @@ http://localhost:3000/annotations?annotation[uuid]=7846-abc5-b349&annotation[sit
     get :show, {:id => @anno1.uuid}
     assert_response :missing
   end
-
-  test "destroy annotation should cause removal of child objects" do
-    assert_equal CapturedFile.find_all_by_annotation_id(@anno1.id).length, 2
-    assert_equal Hannotation.find_all_by_annotation_id(@anno1.id).length, 1
-    delete :destroy, {:id => @anno1.uuid}
-    assert_empty CapturedFile.find_all_by_annotation_id(@anno1.id)
-    assert_empty Hannotation.find_all_by_annotation_id(@anno1.id)
-  end
-
-
 
 end

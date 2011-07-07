@@ -13,15 +13,6 @@ class HannotationsControllerTest < ActionController::TestCase
                       {:path => '/api/annotations/any-uuid/annotations', :method => :post})
   end
 
-  test "create captured file" do
-    #TODO: Probably read a local file into @request.body?
-    fh = File.open('test/fixtures/hanno.json')
-    @request.body.write(fh.read)
-    post :create, :annotation_id => @anno1.uuid
-    assert_response :created
-  end
-
-
   test "route index" do
     assert_recognizes({:controller => 'hannotations', :action => 'index', :annotation_id => 'any-uuid'}, 
                       {:path => '/api/annotations/any-uuid/annotations', :method => :get})

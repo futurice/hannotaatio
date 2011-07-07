@@ -17,7 +17,7 @@ class NotificationMailerTest < ActionMailer::TestCase
     
     assert_equal "New Hannotaatio has been made on your site", mail.subject
     assert_match /A new Hannotaatio has been made on your site/, mail.encoded
-    assert_match /Please go to http:\/\/testing.hannotaatio.futurice.com\/edit\/1234-5678-90 to see the newly made Hannotaatio./, mail.encoded
+    assert_match /Please go to http:\/\/testing.hannotaatio.futurice.com\/view\/1234-5678-90 to see the newly made Hannotaatio./, mail.encoded
     
   end
   

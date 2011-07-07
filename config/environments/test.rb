@@ -31,7 +31,7 @@ HannotaatioServerNew::Application.configure do
   # .................. Hannotaatio configurations ............................. #
   
   # Edit/view url for development env
-  config.view_url = "/view/"
+  config.view_url = "http://testing.hannotaatio.futurice.com/view/"
   
   # File storage configurations
   config.file_storage_domain = "localhost:3000"
