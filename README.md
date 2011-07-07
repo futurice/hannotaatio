@@ -95,6 +95,7 @@ Hannotaatio was made as a school project for a [Software Development Project](ht
 *   Kim Dikert (Aalto University student)
 *   Yu Shen (Aalto University student)
 *   Maksim Luzik (Aalto University student)
+*   Peter Lunberg (Aalto University student)
 
 **Product owner**
 
