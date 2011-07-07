@@ -27,26 +27,26 @@ Setting up your own Hannotaatio instance
 3. `bundle install`
 
 4. `cp config/keys.yml.tmpl config/keys.yml`
-6. `cp config/database.yml.tmpl config/database.yml`
-8. `cp config/environments/development.rb.tmpl config/environments/development.rb`
+5. `cp config/database.yml.tmpl config/database.yml`
+6. `cp config/environments/development.rb.tmpl config/environments/development.rb`
 
-5. Open the config/keys.yml file and edit:
-   * secret_token (see "Generate secret token")
-   * (Optional) Amazon Web Service credentials
+7. `cd bin`
+8. `sh build.sh`
+9. `cd ..`
 
-7. (Optional) Open the config/database.tmpl file and edit it to correspond your own database setup
+10. `bundle exec rake db:migrate`
 
-8. (Optional) Open environment config files config/environments/*.rb and edit them to correspond your own setup.
+11. (Optional) Open the config/keys.yml file and edit:
+   * secret_token (random string, minimum length of 30 characters)
+   * Amazon Web Service credentials
 
-9. `cd bin`
-10. `sh build.sh`
-11. `cd ..`
+12. (Optional) Open the config/database.tmpl file and edit it to correspond your own database setup
 
-12. `bundle exec rake db:migrate`
+13. (Optional) Open environment config files config/environments/*.rb and edit them to correspond your own setup.
 
-10. `rails server`
+14. `rails server`
 
-11. Open your browser and go to [http://localhost:3000](http://localhost:3000)
+15. Open your browser and go to [http://localhost:3000](http://localhost:3000)
 
 Local testing
 -------------
@@ -59,17 +59,6 @@ To test your local API you can use the two example sites:
 * [http://localhost:3000/demos/customer_example5/index-local.html](http://localhost:3000/demos/customer_example5/index-local.html)
 
 Notice that instead of using _index.html_ you should use _index-local.html_ for local testing since those files have been configured to use the API running at localhost:3000. Feel free to modify the `_hannotaatioPreferences` on the index-local.html files.
-
-Generating secret token
------------------------
-
-The _secret_token_ is a 128-character string. You can use IRB (Interactive Ruby Shell) to generate the secret_token:
-
-1. `irb`
-2. `>> require 'active_support'`
-3. `>> ActiveSupport::SecureRandom.hex(64)` 
-
-On local development environment the `secret_token` is optional.
 
 Running tests
 -------------

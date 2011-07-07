@@ -17,3 +17,6 @@ tmp/
 
 # Ignore developer's own configurations
 config/environments/development.rb
+
+# Ignore captured files
+public/captured_files
