@@ -77,11 +77,6 @@ Capturer.prototype.removeCaptureControls = function() {
 Capturer.prototype.captureStylesheets = function(callback) {
     var stylesheetsCaptured = false;
     
-    var capture
-    if(!(this.prefs && !this.prefs.captureStylesheets)) {
-        
-    }
-    
     // Capture by default
     if(!(this.prefs && this.prefs.captureStylesheets === false)) {
     
