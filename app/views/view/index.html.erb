@@ -25,11 +25,18 @@
 		  window._hannotaatioPreferences = {
 		  	apiDomain: "localhost:3000",
 			publishDomain: "localhost:3000",
-			fileStoragePath: "/futurice-hannotaatiodev-files/"
-    		}
+			fileStorageDomain: "<%= @file_storage_domain %>",
+			fileStoragePath: "<%= @file_storage_path %>"
+    	  }
 		  </script>
 		  <script type="text/javascript" src="/javascripts/view/edittool.js"></script>
         <% else %>
+		  <script type="text/javascript">
+		  window._hannotaatioPreferences = {
+			fileStorageDomain: <%= @file_storage_domain %>
+			fileStoragePath: <%= @file_storage_path %>
+    	  }
+		  </script>
 		  <script type="text/javascript" src="/view/edittool.js"></script>
 		  <% end %>
 		

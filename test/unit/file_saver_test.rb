@@ -6,7 +6,7 @@ require "#{Rails.root}/lib/file_saver.rb"
 class FileSaverTest < ActiveSupport::TestCase
 
   def teardown
-    FileUtils.rm_r Rails.configuration.file_storage_path if File.exists? Rails.configuration.file_storage_path
+    FileUtils.rm_r Rails.configuration.file_storage_local_path if File.exists? Rails.configuration.file_storage_local_path
     AWS::S3::S3Object.delete("documents/test_doc.txt", Rails.configuration.s3_bucket);
   end
   

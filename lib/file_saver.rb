@@ -4,7 +4,7 @@ require 'logger'
 class FileSaver
   
   def self.create_fs_path uuid, path
-    "#{Rails.configuration.file_storage_path}/#{uuid}/#{path}"
+    "#{Rails.configuration.file_storage_local_path}/#{uuid}/#{path}"
   end
   
   def self.save_to_fs (uuid, path, content)

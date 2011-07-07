@@ -60,7 +60,9 @@ HannotaatioServerNew::Application.configure do
   config.view_url = "https://hannotaatio-test.futurice.com/view/"
   
   # File storage configurations
-  config.file_storage_path = "#{Rails.root}/public/captured_files/"
+  config.file_storage_domain = "localhost:3000"
+  config.file_storage_public_path = "captured_files/"
+  config.file_storage_local_path = "#{Rails.root}/public/captured_files/"
   config.file_storage_method = "s3" # fs, s3
   config.s3_server = "s3-eu-west-1.amazonaws.com"
   config.s3_bucket = "futurice-hannotaatioqa-files"

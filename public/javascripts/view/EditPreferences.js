@@ -45,12 +45,6 @@ var EditPreferences = function(sitePrefs) {
 	 */
 	this.fileStoragePath = "/futurice-hannotaatio-files/";
 
-	// REMOVE THIS
-	// This is an ugly fix that should be moved. 
-	if(document.domain === "hannotaatio-test.futurice.com") {
-		this.fileStoragePath = "/futurice-hannotaatioqa-files/";
-	}
-
     // Add (and overwrite if needed) custom preferences
     for (key in sitePrefs) {
 		this[key] = sitePrefs[key];

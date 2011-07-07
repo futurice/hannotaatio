@@ -27,21 +27,22 @@ Setting up your own Hannotaatio instance
 3. `bundle install`
 
 4. `cp config/keys.yml.tmpl config/keys.yml`
-5. `cp config/database.yml.tmpl config/database.yml`
+6. `cp config/database.yml.tmpl config/database.yml`
+8. `cp config/environments/development.rb.tmpl config/environments/development.rb`
 
-6. Open the config/keys.yml file and edit:
-   * Amazon Web Service credentials
+5. Open the config/keys.yml file and edit:
    * secret_token (see "Generate secret token")
+   * (Optional) Amazon Web Service credentials
 
-7. Open the config/database.tmpl file and edit it to correspond your own database setup
+7. (Optional) Open the config/database.tmpl file and edit it to correspond your own database setup
 
-8. Open environment config files config/environments/*.rb and edit them to correspond your own setup. You might want to edit at least:
-   * File storage configurations
-   * Email delivery method
+8. (Optional) Open environment config files config/environments/*.rb and edit them to correspond your own setup.
 
 9. `cd bin`
 10. `sh build.sh`
 11. `cd ..`
+
+12. `bundle exec rake db:migrate`
 
 10. `rails server`
 
