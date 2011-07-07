@@ -14,3 +14,6 @@ db/test.sqlite3
 # Ignore log and temp folders
 log/
 tmp/
+
+# Ignore developer's own configurations
+config/environments/development.rb

@@ -20,11 +20,6 @@ HannotaatioServerNew::Application.configure do
   # Disable request forgery protection in test environment
   config.action_controller.allow_forgery_protection    = false
 
-  # Tell Action Mailer not to deliver emails to the real world.
-  # The :test delivery method accumulates sent emails in the
-  # ActionMailer::Base.deliveries array.
-  config.action_mailer.delivery_method = :test
-
   # Use SQL instead of Active Record's schema dumper when creating the test database.
   # This is necessary if your schema can't be completely dumped by the schema dumper,
   # like if you have constraints or database-specific column types
@@ -33,14 +28,25 @@ HannotaatioServerNew::Application.configure do
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
   
+  # .................. Hannotaatio configurations ............................. #
+  
+  # Edit/view url for development env
+  config.view_url = "/view/"
+  
   # File storage configurations
   config.file_storage_path = "#{Rails.root}/tmp/captured_files"
   config.file_storage_method = "fs" # fs, s3
   config.s3_server = "s3-eu-west-1.amazonaws.com"
   config.s3_bucket = "futurice-hannotaatiotest-files"
   
-  config.view_url = "http://testing.hannotaatio.futurice.com/edit/"
+  # Tell Action Mailer not to deliver emails to the real world.
+  # The :test delivery method accumulates sent emails in the
+  # ActionMailer::Base.deliveries array.
+  config.action_mailer.delivery_method = :test
   
+  # Raise delivery errors if unable to send an email
+  # If you are using a real mail server (e.g. Amazon SES)
+  # setting this 'true' helps testing and debugging
   ActionMailer::Base.raise_delivery_errors = true
   
   # Do not use combined/compiled Javascript

@@ -3,7 +3,6 @@ HannotaatioServerNew::Application.configure do
   
   # Set up log directory outside application directory
   config.paths.log = "/var/hannotation_data/log/#{Rails.env}.log"
-  config.file_storage_path = "/var/www-test/files/"
   
   config.view_url = "https://hannotaatio-test.futurice.com/view/"
   
@@ -55,13 +54,24 @@ HannotaatioServerNew::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
   
+  # .................. Hannotaatio configurations ............................. #
+  
+  # Edit/view url
+  config.view_url = "https://hannotaatio-test.futurice.com/view/"
+  
   # File storage configurations
   config.file_storage_path = "#{Rails.root}/public/captured_files/"
   config.file_storage_method = "s3" # fs, s3
   config.s3_server = "s3-eu-west-1.amazonaws.com"
   config.s3_bucket = "futurice-hannotaatioqa-files"
   
+  # Uncomment this to use Amazon SES as the mail server
   config.action_mailer.delivery_method = :ses
+  
+  # Raise delivery errors if unable to send an email
+  # If you are using a real mail server (e.g. Amazon SES)
+  # setting this 'true' helps testing and debugging
+  ActionMailer::Base.raise_delivery_errors = false
   
   # Do not use combined/compiled Javascript
   config.use_debug_javascript = false

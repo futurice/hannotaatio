@@ -14,14 +14,13 @@ HannotaatioServerNew::Application.configure do
   config.action_view.debug_rjs             = true
   config.action_controller.perform_caching = false
 
-  # Don't care if the mailer can't send
-  config.action_mailer.raise_delivery_errors = false
-
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
 
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
+  
+  # .................. Hannotaatio configurations ............................. #
   
   # Edit/view url for development env
   config.view_url = "/view/"
@@ -32,10 +31,13 @@ HannotaatioServerNew::Application.configure do
   config.s3_server = "s3-eu-west-1.amazonaws.com"
   config.s3_bucket = "futurice-hannotaatiodev-files"
   
-  # Sending mails
-  config.action_mailer.delivery_method = :ses
+  # Uncomment this to use Amazon SES as the mail server
+  # config.action_mailer.delivery_method = :ses
   
-  ActionMailer::Base.raise_delivery_errors = true
+  # Raise delivery errors if unable to send an email
+  # If you are using a real mail server (e.g. Amazon SES)
+  # setting this 'true' helps testing and debugging
+  ActionMailer::Base.raise_delivery_errors = false
   
   # Do not use combined/compiled Javascript
   config.use_debug_javascript = true
