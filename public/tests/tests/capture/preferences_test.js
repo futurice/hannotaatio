@@ -22,10 +22,10 @@ $(document).ready(function(){
 	    equals(prefs.flash_path, 'flash/capture/', 'flash_path');
 	
 		// Following doesn't work with https
-		equals(prefs.api_url, 'http://hannotaatio.futurice.com/api/', 'api_url');
-	    equals(prefs.edit_url, 'http://hannotaatio.futurice.com/view/', 'edit_url');
-	    equals(prefs.images_url, 'http://hannotaatio.futurice.com/images/capture/', 'images_url');		
-	    equals(prefs.flash_url, 'http://hannotaatio.futurice.com/flash/capture/', 'flash_url');		
+		equals(prefs.api_url, 'https://hannotaatio.futurice.com/api/', 'api_url');
+	    equals(prefs.edit_url, 'https://hannotaatio.futurice.com/view/', 'edit_url');
+	    equals(prefs.images_url, 'https://hannotaatio.futurice.com/images/capture/', 'images_url');		
+	    equals(prefs.flash_url, 'https://hannotaatio.futurice.com/flash/capture/', 'flash_url');		
     });
 
 	test("All custom values", function() {
@@ -53,7 +53,6 @@ $(document).ready(function(){
 	    equals(prefs.images_path, 'capturer/assets_images/', 'images_path');
 	    equals(prefs.flash_path, 'capturer/assets_flash/', 'flash_path');
 	
-		// Following doesn't work with https
 		equals(prefs.api_url, 'http://hannotaatio-test.futurice.com/api1_0/', 'api_url');
 	    equals(prefs.edit_url, 'http://hannotaatio-test.futurice.com/view1_0/', 'edit_url');
 	    equals(prefs.images_url, 'http://hannotaatio-test.futurice.com/capturer/assets_images/', 'images_url');
@@ -78,9 +77,8 @@ $(document).ready(function(){
 	    equals(prefs.edit_path, 'view1_0/', 'edit_path');
 	    equals(prefs.images_path, 'images/capture/', 'images_path');
 	
-		// Following doesn't work with https
 		equals(prefs.api_url, 'http://hannotaatio-test.futurice.com/api1_0/', 'api_url');
-	    equals(prefs.edit_url, 'http://hannotaatio.futurice.com/view1_0/', 'edit_url');
+	    equals(prefs.edit_url, 'https://hannotaatio.futurice.com/view1_0/', 'edit_url');
 	    equals(prefs.images_url, 'http://hannotaatio-test.futurice.com/capturer/assets_images/', 'images_url');
     });
 });
