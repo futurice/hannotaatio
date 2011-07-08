@@ -54,8 +54,8 @@ Setting up your own Hannotaatio instance
 
 **A:** You need to set your system's locale to support UTF8:
 
-`export LC_ALL=en_US.UTF-8`
-`export LANG=en_US.UTF-8`
+`export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8`
 
 
 Local testing
