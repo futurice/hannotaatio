@@ -17,12 +17,11 @@ gem 'settingslogic'
 
 # Amazon S3 and SES
 gem 'aws-s3'
-# gem "aws-ses", "~> 0.4.1", :require => 'aws/ses'
 gem "aws-ses", "~> 0.4.3", :require => 'aws/ses'
 
 # Admin interface
-# gem 'devise' # Devise must be required before RailsAdmin
-# gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
+gem 'devise', '1.4.2' # Devise must be required before RailsAdmin
+gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 
 # HTTP Client
 gem 'httpclient'

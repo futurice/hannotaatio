@@ -48,6 +48,13 @@ Setting up your own Hannotaatio instance
 
 15. Open your browser and try out the example sites e.g. [http://localhost:3000/demos/customer_example2/index-local.html](http://localhost:3000/demos/customer_example2/index-local.html)
 
+**Troubleshooting**
+**Q:** I'm getting error 
+**A:** You must set your system's locale to support UTF-8, like this:
+`export LC_ALL=en_US.UTF-8`
+`export LANG=en_US.UTF-8`
+
+
 Local testing
 -------------
 

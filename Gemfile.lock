@@ -1,3 +1,13 @@
+GIT
+  remote: git://github.com/sferik/rails_admin.git
+  revision: 32aba784e71a467094e4b7c62be1d82a6ff4bd24
+  specs:
+    rails_admin (0.0.1)
+      builder (~> 2.1.0)
+      fastercsv
+      haml (>= 3.0.0, < 3.2.0)
+      rails (~> 3.0.7)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -39,10 +49,17 @@ GEM
       mail (> 2.2.5)
       mime-types
       xml-simple
+    bcrypt-ruby (2.1.4)
     builder (2.1.2)
     columnize (0.3.3)
+    devise (1.4.2)
+      bcrypt-ruby (~> 2.1.2)
+      orm_adapter (~> 0.0.3)
+      warden (~> 1.0.3)
     erubis (2.6.6)
       abstract (>= 1.0.0)
+    fastercsv (1.5.4)
+    haml (3.1.2)
     httpclient (2.2.1)
     i18n (0.5.0)
     linecache19 (0.5.12)
@@ -54,6 +71,7 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.16)
     mysql (2.8.1)
+    orm_adapter (0.0.5)
     polyglot (0.3.1)
     rack (1.2.3)
     rack-mount (0.6.14)
@@ -92,6 +110,8 @@ GEM
     treetop (1.4.9)
       polyglot (>= 0.3.1)
     tzinfo (0.3.29)
+    warden (1.0.4)
+      rack (>= 1.0)
     xml-simple (1.1.0)
 
 PLATFORMS
@@ -100,9 +120,11 @@ PLATFORMS
 DEPENDENCIES
   aws-s3
   aws-ses (~> 0.4.3)
+  devise (= 1.4.2)
   httpclient
   mysql
   rails (= 3.0.8)
+  rails_admin!
   rake (!= 0.9.0)
   ruby-debug19
   settingslogic

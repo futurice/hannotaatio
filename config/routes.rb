@@ -1,5 +1,5 @@
 HannotaatioServerNew::Application.routes.draw do
-  
+
   scope "/api" do
 
     resources :annotations, :only => [:show, :create, :destroy] do
