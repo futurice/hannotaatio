@@ -9,24 +9,32 @@ $(document).ready(function(){
 		}
 	});
 
-	test('containsJPEGs()', 4, function() {
+	test('containsJPEGs()', 5, function() {
 		var prefs = new Preferences();
 
 		var urls = [new URL("http://futurice.com/image.png")];
 		var imageCapturer = new ImageCapturer(prefs, urls);
-		equals(imageCapturer.containsJPEGs(urls), false, 'No JPEGs');
+		equals(imageCapturer.containsJPEGs(urls), false, 'should return false for .png images');
 
 		var urls2 = [new URL("http://futurice.com/image.jpg")];
 		var imageCapturer2 = new ImageCapturer(prefs, urls2);
-		equals(imageCapturer2.containsJPEGs(urls2), true, 'jpg');
+		equals(imageCapturer2.containsJPEGs(urls2), true, 'should return true for .jpg images');
 
 		var urls3 = [new URL("http://futurice.com/image.jpeg")];
 		var imageCapturer3 = new ImageCapturer(prefs, urls3);
-		equals(imageCapturer3.containsJPEGs(urls3), true, 'jpeg');
+		equals(imageCapturer3.containsJPEGs(urls3), true, 'should return true for .jpeg images');
 
 		var urls4 = [new URL("http://futurice.com/image.JPG")];
 		var imageCapturer4 = new ImageCapturer(prefs, urls4);
-		equals(imageCapturer4.containsJPEGs(urls4), true, 'case-insensitive');
+		equals(imageCapturer4.containsJPEGs(urls4), true, 'should be case-insensitive');
+		
+		var urls5 = [
+		    new URL("http://futurice.com/image.png"),
+		    new URL("http://futurice.com/image.gif"),
+		    new URL("http://futurice.com/image.jpg"),
+		    new URL("http://futurice.com/image.png")];
+		var imageCapturer5 = new ImageCapturer(prefs, urls5);
+		equals(imageCapturer5.containsJPEGs(urls5), true, 'should return true even if there is only jpg');
     });
 
 	test('selectCapturingMethod()', 6, function() {

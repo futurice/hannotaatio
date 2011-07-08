@@ -93,9 +93,11 @@ ImageCapturer.isCanvasSupported = function() {
 ImageCapturer.prototype.containsJPEGs = function(urls) {
 	for( var i = 0; i < urls.length ; i++ ) {
 		var extension = CaptureUtils.extensionFromUrl(urls[i]);
-		var isJPG = extension === '.jpg' || extension === '.jpeg';
-		return isJPG;
+		if(extension === '.jpg' || extension === '.jpeg') {
+		    return true;
+		}
 	}
+	return false;
 }
 
 ImageCapturer.prototype.loadSWFObject = function(prefs, callback) {
