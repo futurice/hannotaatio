@@ -51,6 +51,7 @@ Setting up your own Hannotaatio instance
 **Troubleshooting**
 
 **Q:** I get an "invalid byte sequence in US-ASCII (ArgumentError)" error
+
 **A:** You need to set your system's locale to support UTF8:
 
 `export LC_ALL=en_US.UTF-8`
