@@ -39,6 +39,14 @@ $(document).ready(function(){
 
 		clonedDomEqual($cloned.html(), $original.html(), 'Contents are the same', silent);
 	});
+	
+	test("clone()", 1, function() {
+	    var cloned = CaptureUtils.clone($('#pre-clone-test').get(0)).innerHTML;
+	    
+	    console.log(cloned);
+	    
+	    equals(cloned.indexOf('<script'), -1, 'should pre elements should contain unencoded <script>');
+	})
 
 	test("Replaces relative CSS rules", function() {
 		var rule = "background-image: url(/assets/image.png) !important;";
