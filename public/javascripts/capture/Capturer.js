@@ -422,18 +422,18 @@ Capturer.prototype.updateStyleUrls = function() {
  * @return {Array.<URL>} URLs
  */
 Capturer.prototype.getUniqueImageURLs = function() {
-	var imageUrlStrings = [];
+	var absoluteImageUrlStrings = [];
 	var imageUrls = [];
 
 	var pushIfNotInArray = function(urlString){
-		var url = new URL(urlString)
+		var url = new URL(urlString);
 		var e = CaptureUtils.extensionFromUrl(url);
 		if(e === '.jpeg' || e === '.jpg' || e === '.gif' || e === '.png'){
 			// Check that URL is not yet in the array and check that it's
 			// in the same domain
-			if($.inArray(urlString, imageUrlStrings) === -1 && url.isSameDomain){
+			if($.inArray(url.absoluteUrl, absoluteImageUrlStrings) === -1 && url.isSameDomain){
 				imageUrls.push(url);
-				imageUrlStrings.push(urlString);
+				absoluteImageUrlStrings.push(url.absoluteUrl);
 			}
 		}
 	}

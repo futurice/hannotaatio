@@ -113,7 +113,7 @@ $(document).ready(function(){
 		equals(imageURLs.length, 3, 'Length');
 		equals(imageURLs[0].url, 'resources/red_dot.png', 'From image');
 		equals(imageURLs[1].url, 'resources/flower.jpg', 'From image, not duplicated');
-        ok(imageURLs[2].url.indexOf('resources/flower.jpg') != -1, 'CSS image');
+        ok(imageURLs[2].url.endsWith('resources/flower2.jpg'), 'Image from CSS stylesheet. Do not duplicate flower.jpg!');
 	});
 	
     test("updateImgTagUrls()", function() {
