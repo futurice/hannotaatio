@@ -54,10 +54,10 @@ $(document).ready(function(){
 	    var called2 = false;
 	    var calledWithTrue = false;
 	    var calledWithFalse = false;
-	    
+	    	    
 	    stop();
 	    stop();
-	    
+	    	    
 	    var capturer = new Capturer($('html'), {captureStylesheets: false});
 	    capturer.captureStylesheets(function(captured) {
 	        called1 = true;
@@ -70,7 +70,7 @@ $(document).ready(function(){
 	        calledWithTrue = captured === true;
 	        start();
 	    });
-	    
+	    	    
 	    equals(called1, true, 'should always call the callback');
 	    equals(called2, true, 'should always call the callback');
 	    equals(calledWithFalse, true, 'should return false if stylesheets were not captured');

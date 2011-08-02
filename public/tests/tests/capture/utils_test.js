@@ -42,9 +42,7 @@ $(document).ready(function(){
 	
 	test("clone()", 1, function() {
 	    var cloned = CaptureUtils.clone($('#pre-clone-test').get(0)).innerHTML;
-	    
-	    console.log(cloned);
-	    
+	    	    
 	    equals(cloned.indexOf('<script'), -1, 'should pre elements should contain unencoded <script>');
 	})
 
@@ -64,10 +62,39 @@ $(document).ready(function(){
 		equals(CaptureUtils.replaceRelativeUrlsFromCSSRule(rule, currentLocation), expected, "Relative CSS url changed");
 
 	});
+	
+    test('imageURLToBase64()', function() {
+        if(ImageCapturer.isCanvasSupported() === false){
+			ok(true, 'Canvas not supported, skipping');
+			start();
+			return;
+		}
+		
+		/* Test only the image loading part. Encoding is tested in the next test case */
+        expect(4);
+        
+        stop();
+        stop();
+        
+        var existingImage = new URL("resources/red_dot.png");
+		CaptureUtils.imageURLToBase64(existingImage, function(data, url) {
+		    notEqual(null, data, 'Data should not be null');
+		    equal(existingImage, url, 'URL should remain the same');
+		    
+		    start();
+		});
+		
+		var notExistingImage = new URL("resources/red_dot-not-existing.png");
+		CaptureUtils.imageURLToBase64(notExistingImage, function(data, url) {
+		    equal(null, data, 'Data should be null if image does not exist');
+		    equal(notExistingImage, url, 'URL should remain the same');
+		    
+		    start();
+		});
+    });
 
 	test("Encode IMG to data URI", function() {
 		if(ImageCapturer.isCanvasSupported() === false){
-			start();
 			ok(true, 'Canvas not supported, skipping');
 			return;
 		}
@@ -86,7 +113,6 @@ $(document).ready(function(){
 
 	test("Data encoder encodes also JPGs", function() {
 		if(ImageCapturer.isCanvasSupported() === false){
-			start();
 			ok(true, 'Canvas not supported, skipping');
 			return;
 		}
@@ -112,15 +138,24 @@ $(document).ready(function(){
 
 		// Relative
 		var relativeUrlImg = $('<img src="img/picture.jpg">');
-		CaptureUtils.replaceRelativeUrlFromImg(relativeUrlImg, currentLocation);
-
-		equals(outerHTML(relativeUrlImg), '<img src="https://myservice.com:8080/assets/img/picture.jpg">', 'Replace ok');
+		// There are slight differences between browsers. If the browser return absolute URL there is no need
+		// to replace it anymore. In those cases, skip the test
+		if(URL.isAbsolute(relativeUrlImg.attr('src'))) {
+		    ok(true, "Browser returns absolute src. No need to replace. Skipping this test");
+	    } else {
+		    CaptureUtils.replaceRelativeUrlFromImg(relativeUrlImg, currentLocation);
+		    equals(outerHTML(relativeUrlImg), '<img src="https://myservice.com:8080/assets/img/picture.jpg">', 'Replace ok');
+        }
 
 		// Relative with slash
 		var relativeUrlWithSlashImg = $('<img src="/img/picture.jpg">');
-		CaptureUtils.replaceRelativeUrlFromImg(relativeUrlWithSlashImg, currentLocation);
-
-		equals(outerHTML(relativeUrlWithSlashImg), '<img src="https://myservice.com:8080/img/picture.jpg">', 'Replace ok');
+		
+		if(URL.isAbsolute(relativeUrlWithSlashImg.attr('src'))) {
+		    ok(true, "Browser returns absolute src. No need to replace. Skipping this test");
+	    } else {
+		    CaptureUtils.replaceRelativeUrlFromImg(relativeUrlWithSlashImg, currentLocation);
+		    equals(outerHTML(relativeUrlWithSlashImg), '<img src="https://myservice.com:8080/img/picture.jpg">', 'Replace ok');
+        }
 
 		// Absolute url
 		var absoluteUrlImg = $('<img src="https://myservice.com:8080/assets/img/picture.jpg">');

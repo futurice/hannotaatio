@@ -53,8 +53,21 @@ function clonedDomEqual(actual, expected, message, silent) {
 	actual = actual.replace(/<script[^>]*?>[\s\S]*?<\/script>/gi, '');
 	expected = expected.replace(/<script[^>]*?>[\s\S]*?<\/script>/gi, '');
 	
+	// IE: Remove style element since IE is not able to capture style content
+	actual = actual.replace(/<style[^>]*?>[\s\S]*?<\/style>/gi, '');
+	expected = expected.replace(/<style[^>]*?>[\s\S]*?<\/style>/gi, '');
+	
+	// All: Remove object element, because it might be added by ImageCapturer (flash image capturer)
+	actual = actual.replace(/<object[^>]*?>[\s\S]*?<\/object>/gi, '');
+	expected = expected.replace(/<object[^>]*?>[\s\S]*?<\/object>/gi, '');
+	
 	if (silent) {
-		ok(actual === expected, message)
+	    if(actual !== expected) {
+	        // Don't be silent if fails
+	    	equal(actual, expected, message);
+	    } else {
+	        ok(actual === expected, message);  
+	    }
 	}
 	else {
 		equals(actual, expected, message);

@@ -19,6 +19,12 @@ var ImageCapturer = function(prefs, urls, callback) {
 	 */
 	this._urls = urls;
 
+    // Avoid name collision
+	this.flashImagesEncodedCallback = ImageCapturer.FLASH_IMAGES_ENCODED_CALLBACK + '_' + ImageCapturer.counter;
+	this.flashLoadedCallback = ImageCapturer.FLASH_LOADED_CALLBACK + '_' + ImageCapturer.counter;
+	this.flashContainerId = ImageCapturer.FLASH_CONTAINER_ID + '_' + ImageCapturer.counter;
+	ImageCapturer.counter++;
+
 	var that = this;
 	this.loadSWFObject(prefs, function(loaded) {
 		var hasJPEGImages = that.containsJPEGs(that._urls);
@@ -32,6 +38,11 @@ var ImageCapturer = function(prefs, urls, callback) {
 		}
 	});
 }
+
+/**
+ * Static incremental instance counter
+ */
+ImageCapturer.counter = 0;
 
 /**
  *
@@ -131,14 +142,19 @@ ImageCapturer.prototype.loadSWFObject = function(prefs, callback) {
 ImageCapturer.prototype.capture = function(callback, method) {
     var capturingMethod = method || this._capturingMethod;
 	var urls = this._urls;
+    var imagesToEncode = urls.length;
     var images = {};
 	var that = this;
+
+	var flashImagesEncodedCallback = this.flashImagesEncodedCallback;
+	var flashLoadedCallback = this.flashLoadedCallback;
+	var flashContainerId = this.flashContainerId;
 	
 	var pushToImages = function(images, url, data) {
 		images[url.url] = {newUrl: ImageCapturer.filenameFromPath(url), data: data};
 	}
 	
-    if(urls.length === 0){
+    if(imagesToEncode === 0){
         callback(images);
     }
 		
@@ -149,10 +165,16 @@ ImageCapturer.prototype.capture = function(callback, method) {
 		
 		for ( var i = 0; i < urls.length ; i++ ) {
 			CaptureUtils.imageURLToBase64(urls[i], function(data, url) {
-				imagesEncoded++;
-				pushToImages(images, url, data);
+                if(data === null) {
+                    // Image loading failed
+                    imagesToEncode--;
+                } else {
+                    // Image loaded successfully.
+                    imagesEncoded++;
+    				pushToImages(images, url, data);                    
+                }
 
-				if( imagesEncoded >= urls.length ) {
+				if( imagesEncoded >= imagesToEncode ) {
 					callback(images);
 				}
 			});
@@ -160,8 +182,7 @@ ImageCapturer.prototype.capture = function(callback, method) {
 
 	} else if ( capturingMethod === ImageCapturer.Method.FLASH ) {
 		this.injectFlashEncoder(function() {
-		   
-		   window[ImageCapturer.FLASH_IMAGES_ENCODED_CALLBACK] = function(response) {
+		   window[flashImagesEncodedCallback] = function(response) {
 			  
 			  var imageData = response.split(";");
 
@@ -169,20 +190,21 @@ ImageCapturer.prototype.capture = function(callback, method) {
 			     var url = urls[i];
 				 var data = imageData[i];
 				 
-				 pushToImages(images, url, data);
+				 // Data is empty if Flash was unable to load the image
+				 if(data !== "") {
+				     pushToImages(images, url, data);
+			     }
 			  }
-			  
 			  callback(images);
-			  
 		   };
 		   
 		   var params = [];
 		   for (var i = 0; i < urls.length; i++) {
 		      params.push(urls[i].absoluteUrl);
 		   }
-		   params.push(ImageCapturer.FLASH_IMAGES_ENCODED_CALLBACK);
+		   params.push(flashImagesEncodedCallback);
 
-           swfobject.getObjectById(ImageCapturer.FLASH_CONTAINER_ID).encodeImages(params.join(";"));
+           swfobject.getObjectById(flashContainerId).encodeImages(params.join(";"));
 		})
 	} else {
 		throw new Error('Illegal capturing method');
@@ -191,11 +213,11 @@ ImageCapturer.prototype.capture = function(callback, method) {
 
 ImageCapturer.prototype.injectFlashEncoder = function(callbackFunction) {
 	// Flash container
-	var $flashContainer = $('<div id="' + ImageCapturer.FLASH_CONTAINER_ID + '"></div>').hide();
+	var $flashContainer = $('<div id="' + this.flashContainerId + '"></div>').hide();
 	$('body').append($flashContainer);
 	
 	// Callback
-	window[ImageCapturer.FLASH_LOADED_CALLBACK] = callbackFunction;
+	window[this.flashLoadedCallback] = callbackFunction;
 	
 	// Flash
 	var flashvars = { };
@@ -204,7 +226,7 @@ ImageCapturer.prototype.injectFlashEncoder = function(callbackFunction) {
     };
     var attributes = { };
 
-    swfobject.embedSWF(this._prefs.flash_url + 'image_encoder.swf?debug=false&onLoadCallback=' + ImageCapturer.FLASH_LOADED_CALLBACK, ImageCapturer.FLASH_CONTAINER_ID, "1", "1", "9.0.0","expressInstall.swf", flashvars, params, attributes);
+    swfobject.embedSWF(this._prefs.flash_url + 'image_encoder.swf?debug=false&onLoadCallback=' + this.flashLoadedCallback, this.flashContainerId, "1", "1", "9.0.0","expressInstall.swf", flashvars, params, attributes);
 };
 
 ImageCapturer.filenameFromPath = function(imageUrl) {

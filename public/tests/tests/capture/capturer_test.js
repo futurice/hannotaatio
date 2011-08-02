@@ -102,18 +102,18 @@ $(document).ready(function(){
 		equals(capturer.getDoctype(), doctype, 'Captured doctype');
 	});
 
-	test("getUniqueImageURLs()", function() {
-	    expect(4);
+	test("getUniqueImageURLs()", 5, function() {
 		var capturer = new Capturer($('html'));
 
         capturer.captureStylesheets();
 
 		var imageURLs = capturer.getUniqueImageURLs();
 
-		equals(imageURLs.length, 3, 'Length');
+		equals(imageURLs.length, 4, 'Length');
 		equals(imageURLs[0].url, 'resources/red_dot.png', 'From image');
 		equals(imageURLs[1].url, 'resources/flower.jpg', 'From image, not duplicated');
-        ok(imageURLs[2].url.endsWith('resources/flower2.jpg'), 'Image from CSS stylesheet. Do not duplicate flower.jpg!');
+		equals(imageURLs[2].url, 'resources/flower-not-existing.jpg', 'From image, not duplicated');
+        ok(imageURLs[3].url.endsWith('resources/flower2.jpg'), 'Image from CSS stylesheet. Do not duplicate flower.jpg!');
 	});
 	
     test("updateImgTagUrls()", function() {
@@ -175,20 +175,15 @@ $(document).ready(function(){
 		ok(okValue, 'BG Index was ' + bgPosIndex);
     });
     
-    asyncTest('captureImages', 4, function() {
-        var capturer;
+    test('captureImages', 1, function() {
+        var capturer1, capturer2;
         
-        capturer = new Capturer($('html'), {captureImages: true, flash_url: '/flash/capture/', crossDomainFileAvailable: true});
-        capturer.captureImages(function(captured) {
-            ok(true, 'should always call callback');
-            equals(captured, true, 'should call callback with true (captureImages set true)');
-            start();
-        });
+        stop();
         
-        capturer = new Capturer($('html'));
-        capturer.captureImages(function(captured) {
-            ok(true, 'should always call callback');
+        capturer2 = new Capturer($('html'));
+        capturer2.captureImages(function(captured) {
             equals(captured, false, 'should call callback with false (does not capture images by default)');
+            start();
         });
     });
 });

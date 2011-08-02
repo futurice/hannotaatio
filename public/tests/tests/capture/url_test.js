@@ -9,8 +9,7 @@ $(document).ready(function(){
 		}
 	});
 	
-	test('URL()', function() {
-		expect(5);
+	test('URL()', 5, function() {
 		
 		var givenUrl = new URL('http://testsite.com/path/file.html');
 		equals(givenUrl.url, 'http://testsite.com/path/file.html', 'Given url');
@@ -30,15 +29,13 @@ $(document).ready(function(){
 		equals(urlWithoutLocation.location, window.location.href, 'URL without location');
 	});
 	
-	test('isRelative', function() {
-		expect(2)
+	test('isRelative', 2, function() {
 		
 		equals(URL.isRelative('http://testsite.com'), false, 'Absolute url');
 		equals(URL.isRelative('/assets/images/image.png'), true, 'Relative url');
 	});
 	
-	test('absoluteUrl()', function() {
-		expect(4);
+	test('absoluteUrl()', 4, function() {
 		
 		var location = 'http://testsite.com/path/index.html';
 
@@ -51,8 +48,7 @@ $(document).ready(function(){
 	 	ok(okValues, 'Relative with dots');
     });
 
-	test('isSameDomain()', function() {
-		expect(6);
+	test('isSameDomain()', 6, function() {
 		
 		var location = 'http://testsite.com/path/';
 		

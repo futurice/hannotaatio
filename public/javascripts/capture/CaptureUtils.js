@@ -113,7 +113,7 @@ CaptureUtils.replaceRelativeUrlsFromCSSRule = function(css, currentLocation) {
         urlPart = split2[0];
         afterPart = delim2 + split2[1];
 
-		url = new URL(urlPart, currentLocation);
+		url = new URL(urlPart, new URL(currentLocation).absoluteUrl);
 
         newUrl = beforePart + url.absoluteUrl + afterPart;
 
@@ -162,7 +162,8 @@ CaptureUtils.stripWhitespaces = function(string) {
  * Captures image from url and encodes it to base 64 Data URI.
  *
  * @param {URL} imageUrl url of image to be encoded.
- * @param {function(string)} callback Callback function.
+ * @param {function(string)} callback Callback function with arguments data and url.
+ *   If image doesn't exist, data is null
  */
 CaptureUtils.imageURLToBase64 = function(imageUrl, callback) {
     if (CaptureUtils.isCanvasSupported() === false) {
@@ -173,7 +174,11 @@ CaptureUtils.imageURLToBase64 = function(imageUrl, callback) {
     var $img = $('<img />');
     $img.load(function() {
         callback(CaptureUtils.imgToBase64(this), imageUrl);
+    }).error(function() {
+        // Return null data if error occured while loading
+        callback(null, imageUrl)
     });
+    
     $img.attr('src', imageUrl.absoluteUrl);
 };
 

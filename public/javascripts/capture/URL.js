@@ -11,7 +11,7 @@ var URL = function(url, location) {
 	this.location = location || window.location.href;
 	
 	if(URL.isRelative(this.location)){
-		throw new Error('Location can not be relative');
+		throw new Error('Location can not be relative [location: ' + this.location + ']');
 	}
 	
 	// Initialize
@@ -119,6 +119,10 @@ URL.isRelative = function(url) {
     return url.protocol == null || url.protocol == '';
 };
 
+URL.isAbsolute = function(url) {
+    return !URL.isRelative(url);
+}
+
 URL.absoluteUrl = function(url, location) {
 	var url = typeof url === 'string' ? URL.parseUrl(url) : url;
 	var location = typeof location === 'string' ? URL.parseUrl(location) : location;
@@ -129,10 +133,12 @@ URL.absoluteUrl = function(url, location) {
 	
 	var port = location.port === '' ? '' : ':' + location.port;
 	
-	if(url.directory === '' || url.directory[0] !== '/' || url.source.substring(0, 3) === '../'){
+	if(url.directory === '' || url.directory.charAt('0') !== '/' || url.source.substring(0, 3) === '../'){
+		// alert('First, url.source: ' + url.source + ', url.directory: ' + url.directory + ', url.directory[0]: ' + url.directory[0] + ', url.source.substring(0, 3): ' + url.source.substring(0, 3));
 		// For example 'file.html' or 'assets/image.png' or '../images/image.png'
 		return location.protocol + '://' + location.host + port + location.directory + url.source;
 	} else {
+        // alert('Second, url.source: ' + url.source + ', url.directory: ' + url.directory + ', url.directory[0]: ' + url.directory[0] + ', url.source.substring(0, 3): ' + url.source.substring(0, 3));
 		// For example '/file.html'
 		return location.protocol + '://' + location.host + port + url.source;
 	}

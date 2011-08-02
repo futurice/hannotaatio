@@ -87,12 +87,10 @@ Capturer.prototype.captureStylesheets = function(callback) {
             var captureMedia = this.hasCapturableMediaType(styleSheet);
 
             if (captureMedia === true) {
-
                 var href = styleSheet.href;
                 var hasHref = href !== null &&
                         href !== undefined && href.length > 0;
 			    var stylesheetUrl = new URL(href);
-
                 if (hasHref) {
                     if (stylesheetUrl.isSameDomain) {
                         this.captureStylesheet(styleSheet, i);

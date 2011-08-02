@@ -65,8 +65,8 @@ $(document).ready(function(){
 	asyncTest('capture() with canvas', function() {
 		
 		if(ImageCapturer.isCanvasSupported() === false){
-			start();
 			ok(true, 'Canvas not supported, skipping');
+			start();
 			return;
 		}
 		
@@ -81,8 +81,6 @@ $(document).ready(function(){
 			this.capturingMethod = ImageCapturer.Method.CANVAS;
 			this.capture(function(images) {
 
-                start();
-
                 var length = 0;
 
                 $.each(images, function(index, value){
@@ -95,12 +93,14 @@ $(document).ready(function(){
                 });
 
                 equals(length, 3, 'Length ok');
+                
+                start();
 
 			});
 		});
 	});
 	
-    asyncTest('capture() with flash', 13, function() {
+    test('capture() with flash', 13, function() {
 
         var prefs = {
 		    flash_url: '/flash/capture/',
@@ -109,11 +109,11 @@ $(document).ready(function(){
 
         var capturer = new Capturer($('html'));
         capturer.captureStylesheets();
+        
+        stop();
 
         var imageCapturer = new ImageCapturer(prefs, capturer.getUniqueImageURLs(), function() {
             this.capture(function(images) {
-
-                start();
 
                 var length = 0;
 
@@ -127,6 +127,8 @@ $(document).ready(function(){
                 });
 
                 equals(length, 3, 'Length ok');
+                
+                start();
 
             }, ImageCapturer.Method.FLASH);
         });
@@ -153,16 +155,19 @@ $(document).ready(function(){
 		}
 		var imageCapturer = new ImageCapturer(prefs, [], function() {
 			
+			var id = this.flashContainerId;
+			var callback = this.flashLoadedCallback
+			
 			var callbackFunction = function() {
-				start();
 				ok('Callback function called');
+				equals($('#' + id).length, 1, 'Container added to DOM');
+    			notEqual(window[callback], null, 'Callback added');
+    			
+    			start();
 			};
 			
 			// Inject
 			this.injectFlashEncoder(callbackFunction);
-			
-			equals($('#' + ImageCapturer.FLASH_CONTAINER_ID).length, 1, 'Container added to DOM');
-			equals(window[ImageCapturer.FLASH_LOADED_CALLBACK], callbackFunction, 'Callback added');
 		})
 	});
 });
