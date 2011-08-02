@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+
+        <script type="text/javascript">
+            window.flashLoaded = function() {
+                alert('Flash loaded');
+
+                var params = [
+                    "http://localhost/Car.png",
+						  "http://localhost/not-existing-image.png",
+                    "imagesEncoded"
+                ];
+
+                swfobject.getObjectById("flash").encodeImages(params.join(";"));
+            }
+
+            window.imagesEncoded = function(response) {
+                var images = response.split(";");
+
+                $.each(images, function(key, value) {
+                    $('body').append('<div><code>' + value + '</code><img src="data:image/png;base64,' + value + '" /></div>');
+                });
+
+					 alert('Callback called');
+            }
+
+            var flashvars = { };
+            var params = {
+                allowscriptaccess: "always"
+            };
+            var attributes = { };
+            swfobject.embedSWF("image_encoder.swf?onLoadCallback=flashLoaded&debug=true", "flash", "1", "1", "9.0.0","expressInstall.swf", flashvars, params, attributes);
+    </script>
+
+    </head>
+</html>
+
+<body>
+    <div id="flash"></div>
+
+    <h1>Image capture test page</h1>
+
+    <img id="mobilfish" src="Car.png" style="display: none" />
+    <code id="canvasDataUri"></code>
+
+</body>
