@@ -60,21 +60,16 @@ $(document).ready(function(){
 	    	    
 	    var capturer = new Capturer($('html'), {captureStylesheets: false});
 	    capturer.captureStylesheets(function(captured) {
-	        called1 = true;
-	        calledWithFalse = captured === false;
+	        ok(true, 'should always call the callback');
+	        equals(captured, false, 'should return false if stylesheets were not captured');
 	        start();
 	    });
 	    var capturer = new Capturer($('html'));
 	    capturer.captureStylesheets(function(captured) {
-            called2 = true;
-	        calledWithTrue = captured === true;
+            ok(true, 'should always call the callback');
+	        equals(captured, true, 'should capture by default and should return true');
 	        start();
 	    });
-	    	    
-	    equals(called1, true, 'should always call the callback');
-	    equals(called2, true, 'should always call the callback');
-	    equals(calledWithFalse, true, 'should return false if stylesheets were not captured');
-	    equals(calledWithTrue, true, 'should capture by default and should return true');
 	});
 
 	test("Removes link elements with url pointing to local domain", function() {
