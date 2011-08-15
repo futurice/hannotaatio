@@ -30,19 +30,19 @@ Setting up your own Hannotaatio instance
 5. `cp config/database.yml.tmpl config/database.yml`
 6. `cp config/environments/development.rb.tmpl config/environments/development.rb`
 
-7. `cd bin`
-8. `sh build.sh`
-9. `cd ..`
-
-10. `bundle exec rake db:migrate`
-
-11. (Optional) Open the config/keys.yml file and edit:
+7. (Optional) Open the config/keys.yml file and edit:
    * secret_token (random string, minimum length of 30 characters)
    * Amazon Web Service credentials
 
-12. (Optional) Open the config/database.tmpl file and edit it to correspond your own database setup
+8. (Optional) Open the config/database.tmpl file and edit it to correspond your own database setup
 
-13. (Optional) Open environment config files config/environments/*.rb and edit them to correspond your own setup.
+9. (Optional) Open environment config files config/environments/*.rb and edit them to correspond your own setup.
+
+10. `cd bin`
+11. `sh build.sh`
+12. `cd ..`
+
+13. `bundle exec rake db:migrate`
 
 14. `rails server`
 
