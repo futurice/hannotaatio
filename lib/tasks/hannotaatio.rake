@@ -30,7 +30,7 @@ namespace :hannotaatio do
 	desc "Run bundle install"
 	task :bundle do
 		puts "Run bundle install on #{Dir.pwd}"
-		sh "bundle install"
+		sh "bundle install --path vendor/cache"
 	end
 
 	desc "Setup database"
