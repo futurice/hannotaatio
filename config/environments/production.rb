@@ -2,7 +2,7 @@ HannotaatioServerNew::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
   
   # Set up log directory outside application directory
-  config.paths.log = "/var/hannotation_data/log/#{Rails.env}.log"
+  config.paths.log = "/var/log/hannotaatio/#{Rails.env}.log"
 
   # The production environment is meant for finished, "live" apps.
   # Code is not reloaded between requests
@@ -56,7 +56,7 @@ HannotaatioServerNew::Application.configure do
   config.view_url = "https://hannotaatio.futurice.com/view/"
   
   # File storage configurations
-  config.file_storage_domain = "localhost:3000"
+  config.file_storage_domain = "hannotaatio.futurice.com"
   config.file_storage_public_path = "captured_files/"
   config.file_storage_local_path = "#{Rails.root}/public/captured_files/"
   config.file_storage_method = "s3" # fs, s3
@@ -64,7 +64,7 @@ HannotaatioServerNew::Application.configure do
   config.s3_bucket = "futurice-hannotaatio-files"
   
   # Uncomment this to use Amazon SES as the mail server
-  config.action_mailer.delivery_method = :ses
+  # config.action_mailer.delivery_method = :ses
   
   # Raise delivery errors if unable to send an email
   # If you are using a real mail server (e.g. Amazon SES)
