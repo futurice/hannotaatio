@@ -1,7 +1,7 @@
 namespace :hannotaatio do
 
 	desc "Deploy Hannotaatio to target directory"
-	task :deploy, [:target] => [:check_target, :clear, :copy, :chdir, :bundle, :database, :restart]
+	task :deploy, [:target] => [:check_target, :clear, :copy, :chdir, :database, :restart]
 
   desc "Check if target dir is given"
   task :check_target, [:target] do |t, args|
@@ -27,11 +27,11 @@ namespace :hannotaatio do
 		puts "Changed working directory to #{Dir.pwd}"
 	end
 
-	desc "Run bundle install"
-	task :bundle do
-		puts "Run bundle install on #{Dir.pwd}"
-		sh "bundle install --path vendor/cache"
-	end
+	#desc "Run bundle install"
+	#task :bundle do
+	#	puts "Run bundle install on #{Dir.pwd}"
+	#	sh "bundle install --path vendor/cache"
+	#end
 
 	desc "Setup database"
 	task :database do
