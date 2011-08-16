@@ -21,7 +21,7 @@ Setting up your own Hannotaatio instance
 
 **Installation steps**
 
-1. `git clone git@github.com:futurice/hannotaatio.git`
+1. `git clone git://github.com/futurice/hannotaatio.git`
 2. `cd hannotaatio`
 
 3. `bundle install`
