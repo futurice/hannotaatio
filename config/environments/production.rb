@@ -59,7 +59,7 @@ HannotaatioServerNew::Application.configure do
   config.file_storage_domain = "hannotaatio.futurice.com"
   config.file_storage_public_path = "captured_files/"
   config.file_storage_local_path = "#{Rails.root}/public/captured_files/"
-  config.file_storage_method = "s3" # fs, s3
+  config.file_storage_method = "fs" # fs, s3
   config.s3_server = "s3-eu-west-1.amazonaws.com"
   config.s3_bucket = "futurice-hannotaatio-files"
   
