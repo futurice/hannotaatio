@@ -83,12 +83,16 @@
 
 <h2>Installation</h2>
 
-<p>You can take Hannotaatio into use by simply adding the snippet below into the <code>&lt;head&gt;</code> of the website.</p>
+<p>You can take Hannotaatio into use by simply adding the snippet below at the bottom of the page <code>&lt;body&gt;</code></p>
 
 <div id="install-code-clipboard" class="clipboard-wrapper hover-effect">
 <pre>
-&lt;script type="text/javascript" 
-  src="https://hannotaatio.futurice.com/hannotaatio.js"&gt;
+&lt;script type="text/javascript"&gt;
+  (function(d, t) {
+    var h = d.createElement(t), s = d.getElementsByTagName(t)[0];
+    h.type = "text/javascript"; h.async = 1; h.src = "//hannotaatio.futurice.com/hannotaatio.js";
+    s.parentNode.insertBefore(h, s);
+  })(document, 'script');
 &lt;/script&gt;
 </pre>
 </div>
@@ -119,7 +123,7 @@
 	
 <p id="api-successful"></p>
 	
-<p id="installation-snippet">You can start using Hannotaatio with you API key by simply adding the snippet below into the <code>&lt;head&gt;</code> of the website.</p>
+<p id="installation-snippet">You can start using Hannotaatio with you API key by simply adding the snippet below at the bottom of the page <code>&lt;body&gt;</code></p>
 
 <div id="api-code-clipboard" class="clipboard-wrapper hover-effect">
 	<pre id="installation-code" class="hover-effect"></pre>
@@ -176,29 +180,33 @@
 
 <h3>Complete example of advanced options</h3>
 <div id="advanced-clipboard" class="clipboard-wrapper hover-effect">
-<pre>
-&lt;script type="text/javascript"&gt; 
-  window._hannotaatioPreferences = {
-    apiKey: 'XXXXXXXXXXXXXXX'
+	<pre>
+	&lt;script type="text/javascript"&gt; 
+	  window._hannotaatioPreferences = {
+	    apiKey: 'XXXXXXXXXXXXXXX'
 
-    /* Advances options */
+	    /* Advances options */
 
-    captureStylesheets: true,
+	    captureStylesheets: true,
 
-    captureImages: false,
+	    captureImages: false,
 
-    crossDomainFileAvailable: false,
+	    crossDomainFileAvailable: false,
 
-    notificationEmails: [
-      'developer@hannotaatio.com',
-      'project dot manager at hannotaatio dot com'
-    ]
-  };
-&lt;/script&gt;
-&lt;script type="text/javascript" 
-  src="https://hannotaatio.futurice.com/hannotaatio.js"&gt;
-&lt;/script&gt;
-</pre>
+	    notificationEmails: [
+	      'developer@hannotaatio.com',
+	      'project dot manager at hannotaatio dot com'
+	    ]
+	  };
+	&lt;/script&gt;
+	&lt;script type="text/javascript"&gt;
+	  (function(d, t) {
+	    var h = d.createElement(t), s = d.getElementsByTagName(t)[0];
+	    h.type = "text/javascript"; h.async = 1; h.src = "//hannotaatio.futurice.com/hannotaatio.js";
+	    s.parentNode.insertBefore(h, s);
+	  })(document, 'script');
+	&lt;/script&gt;
+	</pre>
 </div>
 
 </div>
