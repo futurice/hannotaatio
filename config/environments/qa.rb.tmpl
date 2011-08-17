@@ -3,8 +3,6 @@ HannotaatioServerNew::Application.configure do
   
   # Set up log directory outside application directory
   config.paths.log = "/var/log/hannotaatio/#{Rails.env}.log"
-  
-  config.view_url = "https://hannotaatio-test.futurice.com/view/"
 
   # The qa environment is meant for finished, "live" apps.
   # Code is not reloaded between requests
