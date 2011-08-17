@@ -28,25 +28,27 @@ Setting up your own Hannotaatio instance
 
 4. `cp config/keys.yml.tmpl config/keys.yml`
 5. `cp config/database.yml.tmpl config/database.yml`
-6. `cp config/environments/development.rb.tmpl config/environments/development.rb`
+6. `cp config/environments/production.rb.tmpl config/environments/production.rb`
+7. `cp config/environments/qa.rb.tmpl config/environments/qa.rb`
+8. `cp config/environments/development.rb.tmpl config/environments/development.rb`
 
-7. (Optional) Open the config/keys.yml file and edit:
+9. (Optional) Open the config/keys.yml file and edit:
    * secret_token (random string, minimum length of 30 characters)
    * Amazon Web Service credentials
 
-8. (Optional) Open the config/database.tmpl file and edit it to correspond your own database setup
+10. (Optional) Open the config/database.tmpl file and edit it to correspond your own database setup
 
-9. (Optional) Open environment config files config/environments/*.rb and edit them to correspond your own setup.
+11. (Optional) Open environment config files config/environments/*.rb and edit them to correspond your own setup.
 
-10. `cd bin`
-11. `sh build.sh`
-12. `cd ..`
+12. `cd bin`
+13. `sh build.sh`
+14. `cd ..`
 
-13. `bundle exec rake db:migrate`
+15. `bundle exec rake db:migrate`
 
-14. `rails server`
+16. `rails server`
 
-15. Open your browser and try out the example sites e.g. [http://localhost:3000/demos/customer_example2/index-local.html](http://localhost:3000/demos/customer_example2/index-local.html)
+17. Open your browser and try out the example sites e.g. [http://localhost:3000/demos/customer_example2/index-local.html](http://localhost:3000/demos/customer_example2/index-local.html)
 
 **Troubleshooting**
 
