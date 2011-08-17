@@ -35,6 +35,10 @@ HannotaatioServerNew::Application.configure do
   
   # Uncomment this to use Amazon SES as the mail server
   # config.action_mailer.delivery_method = :ses
+
+  # Uncomment this if you're not using SES and need to setup
+  # stmp server
+  # ActionMailer::Base.smtp_settings = {:address => 'smtp.yourserver.com'}
   
   # Raise delivery errors if unable to send an email
   # If you are using a real mail server (e.g. Amazon SES)
