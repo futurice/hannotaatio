@@ -25,30 +25,31 @@ Setting up your own Hannotaatio instance
 2. `cd hannotaatio`
 
 3. `bundle install`
+4. `bundle exec rake rails_admin:install` 
 
-4. `cp config/keys.yml.tmpl config/keys.yml`
-5. `cp config/database.yml.tmpl config/database.yml`
-6. `cp config/environments/production.rb.tmpl config/environments/production.rb`
-7. `cp config/environments/qa.rb.tmpl config/environments/qa.rb`
-8. `cp config/environments/development.rb.tmpl config/environments/development.rb`
+5. `cp config/keys.yml.tmpl config/keys.yml`
+6. `cp config/database.yml.tmpl config/database.yml`
+7. `cp config/environments/production.rb.tmpl config/environments/production.rb`
+8. `cp config/environments/qa.rb.tmpl config/environments/qa.rb`
+9. `cp config/environments/development.rb.tmpl config/environments/development.rb`
 
-9. (Optional) Open the config/keys.yml file and edit:
+10. (Optional) Open the config/keys.yml file and edit:
    * secret_token (random string, minimum length of 30 characters)
    * Amazon Web Service credentials
 
-10. (Optional) Open the config/database.tmpl file and edit it to correspond your own database setup
+11. (Optional) Open the config/database.tmpl file and edit it to correspond your own database setup
 
-11. (Optional) Open environment config files config/environments/*.rb and edit them to correspond your own setup.
+12. (Optional) Open environment config files config/environments/*.rb and edit them to correspond your own setup.
 
-12. `cd bin`
-13. `sh build.sh`
-14. `cd ..`
+13. `cd bin`
+14. `sh build.sh`
+15. `cd ..`
 
-15. `bundle exec rake db:migrate`
+16. `bundle exec rake db:migrate`
 
-16. `rails server`
+17. `rails server`
 
-17. Open your browser and try out the example sites e.g. [http://localhost:3000/demos/customer_example2/index-local.html](http://localhost:3000/demos/customer_example2/index-local.html)
+18. Open your browser and try out the example sites e.g. [http://localhost:3000/demos/customer_example2/index-local.html](http://localhost:3000/demos/customer_example2/index-local.html)
 
 **Troubleshooting**
 
