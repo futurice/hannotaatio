@@ -13,15 +13,6 @@
   	<script type="text/javascript" src="https://getfirebug.com/firebug-lite.js"></script>
   	<![endif]-->
 	
-	<!-- HANNOTAATIO BEGIN -->
-	<script type="text/javascript">
-	    window._hannotaatioPreferences = {
-			hannotaatio_domain: window.location.protocol + '//' + document.domain + '/'
-	    };
-	</script>
-	<script type="text/javascript" src="/hannotaatio.js"></script>
-	<!-- HANNOTAATIO END -->
-	
 	<title>Website Template: Freshmade Software (demo)</title>
 </head>
 
@@ -229,6 +220,21 @@
 	</div>
 
 </div>
+
+<!-- HANNOTAATIO BEGIN -->
+<script type="text/javascript">
+    window._hannotaatioPreferences = {
+		hannotaatio_domain: '//' + document.domain + '/'
+    };
+</script>
+<script type="text/javascript">
+  (function(d, t) {
+    var h = d.createElement(t), s = d.getElementsByTagName(t)[0];
+    h.type = "text/javascript"; h.async = 1; h.src = "//" + document.domain + "/hannotaatio.js";
+    s.parentNode.insertBefore(h, s);
+  })(document, 'script');
+</script>
+<!-- HANNOTAATIO END -->
 
 </body>
 </html>
