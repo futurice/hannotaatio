@@ -20,3 +20,4 @@ config/environments/development.rb
 
 # Ignore captured files
 public/captured_files
+public/captured_files_unit_test

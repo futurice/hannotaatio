@@ -56,10 +56,26 @@ HannotaatioServerNew::Application.configure do
   config.view_url = "https://hannotaatio-test.futurice.com/view/"
   
   # File storage configurations
-  config.file_storage_domain = "hannotaatio-test.futurice.com"
-  config.file_storage_public_path = "captured_files/"
-  config.file_storage_local_path = "#{Rails.root}/public/captured_files/"
+  #
+  # file_storage_public_path: should be the path where the browsers can find
+  # the files from
+  #
+  # file_storage_symlink_path: should be the path where the symlink to the 
+  # real location is created to (it should equal 'Rails.root'/public/'file_storage_public_path').
+  #
+  # file_storage_local_path: should be the path to the real location where 
+  # the files are saved to (it shouldn't be under the Rails.root)
+  #
+  # Be aware of the file permissions! If symlink or file_storage_local_path directory
+  # don't exist, the application is trying to create those. If the app doesn't have
+  # permission to do that an error will occur
+  #
   config.file_storage_method = "fs" # fs, s3
+  config.file_storage_domain = "hannotaatio.futurice.com"
+  config.file_storage_public_path = "captured_files/"
+  config.file_storage_local_path = "#{Rails.root}/../hannotaatio-test-data/"
+
+  # Amazon S3 configurations
   config.s3_server = "s3-eu-west-1.amazonaws.com"
   config.s3_bucket = "futurice-hannotaatioqa-files"
   

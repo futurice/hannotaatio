@@ -31,6 +31,9 @@ class FileSaverTest < ActiveSupport::TestCase
     
     # Test content
     assert_equal IO.read(newfile), "test"
+    
+    # Test symlink
+    # Not working! assert_equal IO.read("#{Rails.root}/public/#{Rails.configuration.file_storage_public_path}/#{uuid}/#{path}"), "test"
   end
   
   test "save_to_s3" do 
@@ -41,7 +44,7 @@ class FileSaverTest < ActiveSupport::TestCase
     
     # Test existence and content
     client = HTTPClient.new
-    res = client.get("https://#{Rails.configuration.s3_server}/#{Rails.configuration.s3_bucket}/#{uuid}/#{path}");
+    res = client.get("https://#{Rails.configuration.s3_server}/#{Rails.configuration.s3_bucket}/#{uuid}/#{path}")
     assert_equal res.body, "test"
   end
   
@@ -70,6 +73,11 @@ class FileSaverTest < ActiveSupport::TestCase
     
     # Delete unexisting file (should not raise error)
     FileSaver.delete_from_fs "1234-5678-9011", "page.html"
+    
+    # Test symlink
+    # Not working! assert (not File.exists? "#{Rails.root}/public/#{Rails.configuration.file_storage_public_path}/#{uuid}/#{path}")
+    # Not working! assert (not File.directory? "#{Rails.root}/public/#{Rails.configuration.file_storage_public_path}/#{uuid}")
+
   end
 
   test "delete_from_s3" do
