@@ -7,6 +7,7 @@ class FileSaverTest < ActiveSupport::TestCase
 
   def teardown
     FileUtils.rm_r Rails.configuration.file_storage_local_path if File.exists? Rails.configuration.file_storage_local_path
+    FileUtils.mkdir_p Rails.configuration.file_storage_local_path
     AWS::S3::S3Object.delete("documents/test_doc.txt", Rails.configuration.s3_bucket);
   end
   
@@ -33,7 +34,7 @@ class FileSaverTest < ActiveSupport::TestCase
     assert_equal IO.read(newfile), "test"
     
     # Test symlink
-    # Not working! assert_equal IO.read("#{Rails.root}/public/#{Rails.configuration.file_storage_public_path}/#{uuid}/#{path}"), "test"
+    assert_equal IO.read("#{Rails.root}/public/#{Rails.configuration.file_storage_public_path}/#{uuid}/#{path}"), "test"
   end
   
   test "save_to_s3" do 
@@ -75,8 +76,8 @@ class FileSaverTest < ActiveSupport::TestCase
     FileSaver.delete_from_fs "1234-5678-9011", "page.html"
     
     # Test symlink
-    # Not working! assert (not File.exists? "#{Rails.root}/public/#{Rails.configuration.file_storage_public_path}/#{uuid}/#{path}")
-    # Not working! assert (not File.directory? "#{Rails.root}/public/#{Rails.configuration.file_storage_public_path}/#{uuid}")
+    assert (not File.exists? "#{Rails.root}/public/#{Rails.configuration.file_storage_public_path}/#{uuid}/#{path}")
+    assert (File.exists? "#{Rails.root}/public/#{Rails.configuration.file_storage_public_path}/")
 
   end
 

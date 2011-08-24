@@ -48,7 +48,7 @@ HannotaatioServerNew::Application.configure do
   #
   config.file_storage_method = "fs" # fs, s3
   config.file_storage_domain = "localhost:3000"
-  config.file_storage_public_path = "captured_files/"
+  config.file_storage_public_path = "captured_files_unit_tests"
   config.file_storage_local_path = "#{Rails.root}/test/tmp/captured_files/"
   
   # File storage configurations
