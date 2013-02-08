@@ -54,7 +54,8 @@
                 j(script).remove();
             }
         };
-        document.documentElement.childNodes[0].appendChild(script);
+        var head = document.getElementsByTagName('head')[0];
+        head.appendChild(script);
     }
 })(window, document, '1.6.1', function($, jquery_loaded)
 {
